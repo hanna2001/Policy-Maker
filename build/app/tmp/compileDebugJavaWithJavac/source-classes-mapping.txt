@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/kohli/studio/policy_maker/BuildConfig.java
+ com.kohli.studio.policy_maker.BuildConfig
