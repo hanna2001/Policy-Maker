@@ -23,7 +23,8 @@ class Services {
     try {
       var map = Map<String, dynamic>();
       map['action'] = GET1;
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 1 response: ${response.body}');
       print(response.statusCode);
       if (200 == response.statusCode) {
@@ -51,7 +52,8 @@ class Services {
       var map = Map<String, dynamic>();
       map['action'] = GET2;
       map['insurance_name'] = insurance[0];
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 2 response: ${response.body}');
       if (200 == response.statusCode) {
         List<Responses> list = parseResponse(response.body, 2);
@@ -71,7 +73,8 @@ class Services {
       map['action'] = GET3;
       map['insurance_name'] = insurance[0];
       map['insurance_type'] = insurance[1];
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 3 response: ${response.body}');
       if (200 == response.statusCode) {
         List<Responses> list = parseResponse(response.body, 3);
@@ -92,7 +95,8 @@ class Services {
       map['insurance_name'] = insurance[0];
       map['insurance_type'] = insurance[1];
       map['member_type'] = insurance[2];
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 4 response: ${response.body}');
       if (200 == response.statusCode) {
         List<Responses> list = parseResponse(response.body, 4);
@@ -111,7 +115,8 @@ class Services {
       var map = Map<String, dynamic>();
       map['action'] = 'table11';
       map['parameter'] = parameter;
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 11 response: ${response.body}');
       if (200 == response.statusCode) {
         List<Responses> list = parseResponse(response.body, 15);
@@ -130,7 +135,8 @@ class Services {
       var map = Map<String, dynamic>();
       map['action'] = 'table11';
       map['parameter'] = parameter;
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 11 response: ${response.body}');
       if (200 == response.statusCode) {
         return response.body;
@@ -151,7 +157,8 @@ class Services {
       map['insurance_type'] = insurance[1];
       map['member_type'] = insurance[2];
       map['company_name'] = insurance[3];
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 5 response: ${response.body}');
       if (200 == response.statusCode) {
         List<Responses> list = parseResponse(response.body, 5);
@@ -174,7 +181,8 @@ class Services {
       map['company_name'] = insurance[2];
       map['member_type'] = insurance[3];
       map['plan_name'] = insurance[4];
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 10 response: ${response.body}');
       if (200 == response.statusCode) {
         List<Responses> list = parseResponse(response.body, 10);
@@ -192,7 +200,8 @@ class Services {
       var map = Map<String, dynamic>();
       map['action'] = GET11;
       map['p_add_ons_id'] = id;
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 11 response: ${response.body}');
       if (200 == response.statusCode) {
         List<Responses> list = parseResponse(response.body, 11);
@@ -219,7 +228,8 @@ class Services {
       } else {
         map['age'] = insurance[5];
       }
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 6 response: ${response.body}');
       if (200 == response.statusCode) {
         List<Responses> list = parseResponse(response.body, 6);
@@ -248,7 +258,8 @@ class Services {
       map['company_name'] = insurance[3];
       map['plan_name'] = insurance[4];
       map['sum_insured'] = insurance[6];
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 7 response: ${response.body}');
       if (200 == response.statusCode) {
         List<Responses> list = parseResponse(response.body, 7);
@@ -276,7 +287,8 @@ class Services {
       map['company_name'] = insurance[3];
       map['plan_name'] = insurance[4];
       map['sum_insured'] = insurance[6];
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 8 response: ${response.body}');
       if (200 == response.statusCode) {
         List<Responses> list = parseResponse(response.body, 8);
@@ -304,7 +316,8 @@ class Services {
       map['company_name'] = insurance[3];
       map['plan_name'] = insurance[4];
       map['sum_insured'] = insurance[6];
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 9 response: ${response.body}');
       if (200 == response.statusCode) {
         return response.body.toString();

@@ -62,6 +62,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   _getSharedPrefs() async {
+    
     final prefs = await SharedPreferences.getInstance();
     if (prefs.containsKey("auth_verified")) {
       setState(() {
@@ -69,7 +70,7 @@ class _MyAppState extends State<MyApp> {
       });
       while (await AndroidMultipleIdentifier.checkPermission() != true) {
         await AndroidMultipleIdentifier.requestPermission();
-        FlutterToast.showToast(
+        Fluttertoast.showToast(
             msg: "Allow permission to proceed with the app",
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,

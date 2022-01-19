@@ -155,7 +155,7 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
         print(result);
       }); // Reset the title...
       if (_insurance.length == 0) {
-        FlutterToast.showToast(
+        Fluttertoast.showToast(
             msg: "No premium available for given age in selected plan",
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
@@ -395,7 +395,7 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
                                                       );
                                                     });
                                               } else if (i < index) {
-                                                FlutterToast.showToast(
+                                                Fluttertoast.showToast(
                                                     msg:
                                                         "please fill the above details first",
                                                     toastLength:
@@ -406,7 +406,7 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
                                                     textColor: Colors.white,
                                                     fontSize: 16.0);
                                               } else {
-                                                FlutterToast.showToast(
+                                                Fluttertoast.showToast(
                                                     msg: "please tap again",
                                                     toastLength:
                                                         Toast.LENGTH_SHORT,
@@ -568,7 +568,7 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
                                                   ageController.text.trim().toString());
                                               _getTable6(options);
                                             } else {
-                                              FlutterToast.showToast(
+                                              Fluttertoast.showToast(
                                                   msg: "Please enter valid age",
                                                   toastLength: Toast.LENGTH_SHORT,
                                                   gravity: ToastGravity.BOTTOM,
@@ -710,7 +710,7 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
                             });
                         options.removeLast();
                       } else if (i != 5 && change == "yes") {
-                        FlutterToast.showToast(
+                        Fluttertoast.showToast(
                             msg: "change all fields as per one change",
                             toastLength: Toast.LENGTH_SHORT,
                             gravity: ToastGravity.BOTTOM,
@@ -719,7 +719,7 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
                             textColor: Colors.white,
                             fontSize: 16.0);
                       } else if (ageEntered) {
-                        FlutterToast.showToast(
+                        Fluttertoast.showToast(
                             msg: "please enter your age and confirm it",
                             toastLength: Toast.LENGTH_SHORT,
                             gravity: ToastGravity.BOTTOM,

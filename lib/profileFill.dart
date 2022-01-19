@@ -490,7 +490,7 @@ class ProfileFillState extends State<ProfileFill> {
         });
         UserServices.uploadImage(_image, user).then((result) async {
           if (result == "success") {
-            FlutterToast.showToast(
+            Fluttertoast.showToast(
                 msg: "Updated your profile picture successfully",
                 toastLength: Toast.LENGTH_SHORT,
                 gravity: ToastGravity.BOTTOM,
@@ -506,7 +506,7 @@ class ProfileFillState extends State<ProfileFill> {
               });
             });
           } else {
-            FlutterToast.showToast(
+            Fluttertoast.showToast(
                 msg: result,
                 toastLength: Toast.LENGTH_SHORT,
                 gravity: ToastGravity.BOTTOM,
@@ -816,7 +816,7 @@ class ProfileFillState extends State<ProfileFill> {
                       } else {
                         print(emailController.text.trim().toString());
                         print(randomNum.toString());
-                        FlutterToast.showToast(
+                        Fluttertoast.showToast(
                             msg: "Incorrect OTP",
                             toastLength: Toast.LENGTH_SHORT,
                             gravity: ToastGravity.BOTTOM,
@@ -893,7 +893,7 @@ class ProfileFillState extends State<ProfileFill> {
                             }
                           });
                         }
-                        FlutterToast.showToast(
+                        Fluttertoast.showToast(
                             msg: "Redirecting to your InsureSelector.",
                             toastLength: Toast.LENGTH_SHORT,
                             gravity: ToastGravity.BOTTOM,

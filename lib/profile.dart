@@ -63,7 +63,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
         });
         UserServices.uploadImage(_image, user).then((result) async {
           if (result == "success") {
-            FlutterToast.showToast(
+            Fluttertoast.showToast(
                 msg: "Updated your profile picture successfully",
                 toastLength: Toast.LENGTH_SHORT,
                 gravity: ToastGravity.BOTTOM,
@@ -79,7 +79,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
               });
             });
           } else {
-            FlutterToast.showToast(
+            Fluttertoast.showToast(
                 msg: result,
                 toastLength: Toast.LENGTH_SHORT,
                 gravity: ToastGravity.BOTTOM,
@@ -180,7 +180,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
       // });
       UserServices.updateUser(field, change, user).then((user) {
         if (user == "User updated Successfully") {
-          FlutterToast.showToast(
+          Fluttertoast.showToast(
               msg: "Updated your $field to $change successfully",
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
@@ -211,7 +211,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
               });
           }
         } else {
-          FlutterToast.showToast(
+          Fluttertoast.showToast(
               msg: "Update failed Error: $e",
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
@@ -223,7 +223,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
       });
     } catch (e) {
       print("Update failed.");
-      FlutterToast.showToast(
+      Fluttertoast.showToast(
           msg: "Update failed Error: $e",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,

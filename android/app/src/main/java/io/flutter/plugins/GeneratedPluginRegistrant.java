@@ -28,9 +28,14 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin device_id, com.notrait.deviceid.DeviceIdPlugin", e);
     }
     try {
-      de.esys.esysfluttershare.EsysFlutterSharePlugin.registerWith(shimPluginRegistry.registrarFor("de.esys.esysfluttershare.EsysFlutterSharePlugin"));
+      flutterEngine.getPlugins().add(new io.flutter.plugins.firebase.auth.FlutterFirebaseAuthPlugin());
     } catch(Exception e) {
-      Log.e(TAG, "Error registering plugin esys_flutter_share, de.esys.esysfluttershare.EsysFlutterSharePlugin", e);
+      Log.e(TAG, "Error registering plugin firebase_auth, io.flutter.plugins.firebase.auth.FlutterFirebaseAuthPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin());
+    } catch(Exception e) {
+      Log.e(TAG, "Error registering plugin firebase_core, io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin());
@@ -60,7 +65,7 @@ public final class GeneratedPluginRegistrant {
     try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.pathprovider.PathProviderPlugin());
     } catch(Exception e) {
-      Log.e(TAG, "Error registering plugin path_provider, io.flutter.plugins.pathprovider.PathProviderPlugin", e);
+      Log.e(TAG, "Error registering plugin path_provider_android, io.flutter.plugins.pathprovider.PathProviderPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new com.baseflow.permissionhandler.PermissionHandlerPlugin());
@@ -73,19 +78,19 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin share, io.flutter.plugins.share.SharePlugin", e);
     }
     try {
-      com.twwm.share_files_and_screenshot_widgets.ShareFilesAndScreenshotWidgetsPlugin.registerWith(shimPluginRegistry.registrarFor("com.twwm.share_files_and_screenshot_widgets.ShareFilesAndScreenshotWidgetsPlugin"));
+      flutterEngine.getPlugins().add(new com.twwm.share_files_and_screenshot_widgets.ShareFilesAndScreenshotWidgetsPlugin());
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin share_files_and_screenshot_widgets, com.twwm.share_files_and_screenshot_widgets.ShareFilesAndScreenshotWidgetsPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin());
     } catch(Exception e) {
-      Log.e(TAG, "Error registering plugin shared_preferences, io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin", e);
+      Log.e(TAG, "Error registering plugin shared_preferences_android, io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.urllauncher.UrlLauncherPlugin());
     } catch(Exception e) {
-      Log.e(TAG, "Error registering plugin url_launcher, io.flutter.plugins.urllauncher.UrlLauncherPlugin", e);
+      Log.e(TAG, "Error registering plugin url_launcher_android, io.flutter.plugins.urllauncher.UrlLauncherPlugin", e);
     }
   }
 }

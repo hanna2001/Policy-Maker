@@ -1,10 +1,6 @@
 com/baseflow/permissionhandler/PermissionManager.java
  com.baseflow.permissionhandler.PermissionManager
- com.baseflow.permissionhandler.PermissionManager$ActivityRegistry
- com.baseflow.permissionhandler.PermissionManager$ActivityResultListener
  com.baseflow.permissionhandler.PermissionManager$CheckPermissionsSuccessCallback
- com.baseflow.permissionhandler.PermissionManager$PermissionRegistry
- com.baseflow.permissionhandler.PermissionManager$RequestPermissionsListener
  com.baseflow.permissionhandler.PermissionManager$RequestPermissionsSuccessCallback
  com.baseflow.permissionhandler.PermissionManager$ShouldShowRequestPermissionRationaleSuccessCallback
 com/baseflow/permissionhandler/ServiceManager.java

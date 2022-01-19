@@ -7,6 +7,7 @@ import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
 
 import 'package:policy_maker/animations.dart';
+import 'package:policy_maker/profile.dart';
 import 'package:policy_maker/profileFill.dart';
 import 'package:policy_maker/userServices.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -227,13 +228,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                           "&senderid=KOHLIC&msg=Dear+User+Your+OTP+is+" +
                                           randomNumber.toString();
                                   print(link);
-                                  var f = await http.get(link);
+                                  var f = await http.get(Uri.parse(link));
                                   print(f.body.toString());
                                   try {
-                                    await http.post(
-                                        "http://websms.kohliconnect.com/app/miscapi/55DFE218F61F0F/getDLR/" +
-                                            f.body.toString());
-                                    FlutterToast.showToast(
+                                    await http.post(Uri.parse("http://websms.kohliconnect.com/app/miscapi/55DFE218F61F0F/getDLR/" +
+                                            f.body.toString())
+                                        );
+                                    Fluttertoast.showToast(
                                         msg: "Resent The OTP",
                                         toastLength: Toast.LENGTH_SHORT,
                                         gravity: ToastGravity.BOTTOM,
@@ -329,10 +330,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                               link2[smsCount] +
                                               randomNumber.toString();
                                           print("link"+link);
-                                          var f = await http.get(link);
+                                          var url=Uri.parse(link);
+                                          var f = await http.get(url);
                                           print("---f.body"+f.body.toString());
-                                          await http.post(link3[smsCount] +
-                                              f.body.toString());
+                                          await http.post(Uri.parse(link3[smsCount] +
+                                              f.body.toString()));
                                           setState(() {
                                             otpSent = true;
                                           });
@@ -392,7 +394,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             "Same IMEI ... Confirming the same device");
                                         if (DateTime.parse(expiryDate)
                                             .isBefore(now)) {
-                                          FlutterToast.showToast(
+                                          Fluttertoast.showToast(
                                               msg:
                                                   "Your plan/free trial has expired ",
                                               toastLength: Toast.LENGTH_SHORT,
@@ -424,7 +426,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           .toString()
                                           .length !=
                                       10) {
-                                    FlutterToast.showToast(
+                                    Fluttertoast.showToast(
                                         msg:
                                             "Please Provide valid mobile number.",
                                         toastLength: Toast.LENGTH_SHORT,
@@ -434,7 +436,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         textColor: Colors.white,
                                         fontSize: 16.0);
                                   } else {
-                                    FlutterToast.showToast(
+                                    Fluttertoast.showToast(
                                         msg:
                                             "Please Provide Your mobile number",
                                         toastLength: Toast.LENGTH_SHORT,
@@ -518,7 +520,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               expiryDate.toString(), imei)
                                           .then((result) {
                                         print("----24"+result);
-                                        FlutterToast.showToast(
+                                        Fluttertoast.showToast(
                                             msg: result,
                                             toastLength: Toast.LENGTH_SHORT,
                                             gravity: ToastGravity.BOTTOM,
@@ -538,7 +540,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               boolean = true;
                                             });
                                           }
-                                          FlutterToast.showToast(
+                                          Fluttertoast.showToast(
                                               msg:
                                                   "Redirecting to your profile.",
                                               toastLength: Toast.LENGTH_SHORT,
@@ -565,7 +567,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       UserServices.updateUser(
                                               "IMEI", imei, number)
                                           .then((result) {
-                                        FlutterToast.showToast(
+                                        Fluttertoast.showToast(
                                             msg: result,
                                             toastLength: Toast.LENGTH_SHORT,
                                             gravity: ToastGravity.BOTTOM,
@@ -585,7 +587,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     }
                                   } else {
                                     print("Incorrect OTP");
-                                    FlutterToast.showToast(
+                                    Fluttertoast.showToast(
                                         msg: "OTP is incorrect.",
                                         toastLength: Toast.LENGTH_SHORT,
                                         gravity: ToastGravity.BOTTOM,

@@ -163,7 +163,7 @@ class _AboutUsState extends State<AboutUs> {
                       });
                       controller.clear();
                     } else {
-                      FlutterToast.showToast(
+                      Fluttertoast.showToast(
                           msg: "Please provide some feedback",
                           toastLength: Toast.LENGTH_SHORT,
                           gravity: ToastGravity.BOTTOM,

@@ -18,7 +18,8 @@ class UserServices {
       map['Expiry'] = date;
       print(map['Expiry'] + " Expiry Date");
       map['IMEI'] = IMEI;
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 1 response: ${response.body}');
       print(response.toString());
       if (response.body.contains("success")) {
@@ -37,7 +38,8 @@ class UserServices {
       map['action'] = "feedback";
       map['Phone'] = Phone;
       map['feedback'] = feedback;
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table feedback response: ${response.body}');
       print(response.toString());
       if (response.body.contains("success")) {
@@ -54,7 +56,8 @@ class UserServices {
     try {
       var map = Map<String, dynamic>();
       map['action'] = "get_user";
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 5 response: ${response.body}');
       print(response.body);
       return response.body;
@@ -67,7 +70,8 @@ class UserServices {
     try {
       var map = Map<String, dynamic>();
       map['action'] = "get_password";
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 6 response: ${response.body}');
       print(response.body);
       return response.body;
@@ -85,7 +89,8 @@ class UserServices {
       map['picture'] = base64Encode(bytes);
       print(map['picture'].toString().length);
       map['Phone'] = phone;
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 7 response: ${response.body}');
       print(response.body);
       return response.body;
@@ -99,7 +104,8 @@ class UserServices {
     var map = Map<String, dynamic>();
     map['action'] = "user_exists";
     map['Phone'] = Phone;
-    final response = await http.post(ROOT, body: map);
+    var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
     print('------Table 4 response: ${response.body}');
     print(response.statusCode);
     print("-----ReachedEnd");
@@ -119,7 +125,8 @@ class UserServices {
       map['parameter'] = parameter;
       map['value'] = value;
       map['Phone'] = phone;
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 2 response: ${response.body}');
       print(response.statusCode);
       if (response.body == "success") {
@@ -137,7 +144,8 @@ class UserServices {
       var map = Map<String, dynamic>();
       map['action'] = "get_user";
       map['Phone'] = phone;
-      final response = await http.post(ROOT, body: map);
+      var url=Uri.parse(ROOT);
+      final response = await http.post(url, body: map);
       print('Table 3 response: ${response.body}');
       // print(response.statusCode);
       if (200 == response.statusCode) {
