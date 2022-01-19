@@ -1,0 +1,46 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+ProcessException: ProcessException: Access is denied.
+
+  Command: C:\flutter\flutter\bin\cache\dart-sdk\bin\dart.exe C:\flutter\flutter\bin\cache\artifacts\engine\windows-x64\frontend_server.dart.snapshot --sdk-root C:\flutter\flutter\bin\cache\artifacts\engine\common\flutter_patched_sdk/ --incremental --target=flutter --debugger-module-names -Ddart.developer.causal_async_stacks=true --output-dill C:\Users\Vaidehi\AppData\Local\Temp\flutter_tool.d0a6be36-c823-11ea-abe3-24ee9a9d91e3\app.dill --packages C:\Users\Vaidehi\Desktop\policy_maker\.packages -Ddart.vm.profile=false -Ddart.vm.product=false --bytecode-options=source-positions,local-var-info,debugger-stops,instance-field-initializers,keep-unreachable-code,avoid-closure-call-instructions --enable-asserts --track-widget-creation --filesystem-scheme org-dartlang-root
+
+```
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, v1.17.5, on Microsoft Windows [Version 10.0.18362.959], locale en-IN)
+    • Flutter version 1.17.5 at C:\flutter\flutter
+    • Framework revision 8af6b2f038 (2 weeks ago), 2020-06-30 12:53:55 -0700
+    • Engine revision ee76268252
+    • Dart version 2.8.4
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 29.0.2)
+    • Android SDK at C:\Users\Vaidehi\AppData\Local\Android\sdk
+    • Platform android-29, build-tools 29.0.2
+    • Java binary at: C:\Program Files\Android\Android Studio\jre\bin\java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b01)
+    • All Android licenses accepted.
+
+[✓] Android Studio (version 4.0)
+    • Android Studio at C:\Program Files\Android\Android Studio
+    • Flutter plugin version 47.1.2
+    • Dart plugin version 193.7361
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b01)
+
+[✓] VS Code (version 1.47.2)
+    • VS Code at C:\Users\Vaidehi\AppData\Local\Programs\Microsoft VS Code
+    • Flutter extension version 3.12.2
+
+[✓] Connected device (1 available)
+    • ONEPLUS A6000 • 1621f3d9 • android-arm64 • Android 10 (API 29)
+
+• No issues found!
+```
