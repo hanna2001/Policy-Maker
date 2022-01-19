@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "260493821452",
+    "firebase_url": "https://policymaker-95e91.firebaseio.com",
+    "project_id": "policymaker-95e91",
+    "storage_bucket": "policymaker-95e91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260493821452:android:ebbe9fe2b8515a38789029",
+        "android_client_info": {
+          "package_name": "com.kohli.studio.policy_maker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260493821452-ndhhdp5p1krpobsh67pl4v4mo11mqmoh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1faKt75JPBcfkU9O2x4c6yAupdS8Wfyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260493821452-ndhhdp5p1krpobsh67pl4v4mo11mqmoh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
