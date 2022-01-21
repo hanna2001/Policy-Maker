@@ -45,6 +45,10 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"فتح على الهاتف"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"تسجل الدخول"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"‏تسجيل الدخول عبر Google"</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"تم نسخ الرابط إلى الحافظة."</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"نسخ الرابط"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"فتح في المتصفح"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"مشاركة الرابط"</string>
     <string msgid="1685185767093348095" name="mr_button_content_description">"زر الإرسال"</string>
     <string msgid="1350095112462806159" name="mr_cast_button_connected">"زر الإرسال. تم الاتصال"</string>
     <string msgid="8959304318293841992" name="mr_cast_button_connecting">"زر الإرسال. جارٍ الاتصال"</string>

@@ -4,7 +4,7 @@
             "outputFile": "F:\\internship\\Policy-Maker\\build\\path_provider_android\\intermediates\\res\\merged\\debug\\values-v21\\values-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hanna\\.gradle\\caches\\transforms-2\\files-2.1\\f7faa8265a7626083127e7388c45d624\\core-1.6.0\\res\\values-v21\\values-v21.xml",
+                    "source": "C:\\Users\\hanna\\.gradle\\caches\\transforms-2\\files-2.1\\a83c0dd2fac145f5ded078c7c0d58daf\\core-1.6.0\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -20,7 +20,7 @@
             "outputFile": "F:\\internship\\Policy-Maker\\build\\path_provider_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hanna\\.gradle\\caches\\transforms-2\\files-2.1\\f7faa8265a7626083127e7388c45d624\\core-1.6.0\\res\\values-v21\\values-v21.xml",
+                    "source": "C:\\Users\\hanna\\.gradle\\caches\\transforms-2\\files-2.1\\a83c0dd2fac145f5ded078c7c0d58daf\\core-1.6.0\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

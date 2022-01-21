@@ -45,6 +45,10 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"เปิดบนโทรศัพท์"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"ลงชื่อเข้าใช้"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"ลงชื่อเข้าใช้ด้วย Google"</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"คัดลอกลิงก์"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"เปิดในเบราว์เซอร์"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"แชร์ลิงก์"</string>
     <string msgid="1685185767093348095" name="mr_button_content_description">"ปุ่ม \"แคสต์\""</string>
     <string msgid="1350095112462806159" name="mr_cast_button_connected">"ปุ่ม \"แคสต์\" เชื่อมต่อแล้ว"</string>
     <string msgid="8959304318293841992" name="mr_cast_button_connecting">"ปุ่ม \"แคสต์\" กำลังเชื่อมต่อ"</string>
