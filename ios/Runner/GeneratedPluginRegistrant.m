@@ -12,12 +12,6 @@
 @import android_multiple_identifier;
 #endif
 
-#if __has_include(<device_id/DeviceIdPlugin.h>)
-#import <device_id/DeviceIdPlugin.h>
-#else
-@import device_id;
-#endif
-
 #if __has_include(<device_information/DeviceInformationPlugin.h>)
 #import <device_information/DeviceInformationPlugin.h>
 #else
@@ -112,7 +106,6 @@
 
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
   [AndroidMultipleIdentifierPlugin registerWithRegistrar:[registry registrarForPlugin:@"AndroidMultipleIdentifierPlugin"]];
-  [DeviceIdPlugin registerWithRegistrar:[registry registrarForPlugin:@"DeviceIdPlugin"]];
   [DeviceInformationPlugin registerWithRegistrar:[registry registrarForPlugin:@"DeviceInformationPlugin"]];
   [FLTFirebaseAuthPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseAuthPlugin"]];
   [FLTFirebaseCorePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseCorePlugin"]];

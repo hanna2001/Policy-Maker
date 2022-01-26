@@ -68,18 +68,6 @@
       "languageVersion": "2.0"
     },
     {
-      "name": "decimal",
-      "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/decimal-1.5.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "device_id",
-      "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/device_id-0.2.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.0"
-    },
-    {
       "name": "device_information",
       "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/device_information-0.0.4",
       "packageUri": "lib/",
@@ -136,12 +124,6 @@
     {
       "name": "firebase_core_web",
       "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.5.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "fixed",
-      "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/fixed-1.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -302,12 +284,6 @@
       "languageVersion": "2.7"
     },
     {
-      "name": "money2",
-      "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/money2-3.1.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.13"
-    },
-    {
       "name": "nested",
       "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/nested-1.0.0",
       "packageUri": "lib/",
@@ -420,12 +396,6 @@
       "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/provider-4.3.3",
       "packageUri": "lib/",
       "languageVersion": "2.7"
-    },
-    {
-      "name": "rational",
-      "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/rational-1.2.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "sa_v1_migration",
@@ -632,7 +602,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2022-01-26T09:37:55.999654Z",
+  "generated": "2022-01-26T13:35:20.784611Z",
   "generator": "pub",
   "generatorVersion": "2.15.1"
 }

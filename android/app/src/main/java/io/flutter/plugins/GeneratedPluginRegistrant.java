@@ -23,11 +23,6 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin android_multiple_identifier, flutter.io.androidmultipleidentifier.AndroidMultipleIdentifierPlugin", e);
     }
     try {
-      com.notrait.deviceid.DeviceIdPlugin.registerWith(shimPluginRegistry.registrarFor("com.notrait.deviceid.DeviceIdPlugin"));
-    } catch(Exception e) {
-      Log.e(TAG, "Error registering plugin device_id, com.notrait.deviceid.DeviceIdPlugin", e);
-    }
-    try {
       flutterEngine.getPlugins().add(new co.creativemind.device_information.DeviceInformationPlugin());
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin device_information, co.creativemind.device_information.DeviceInformationPlugin", e);
