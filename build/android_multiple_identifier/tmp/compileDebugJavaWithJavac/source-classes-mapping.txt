@@ -1,4 +1,0 @@
-flutter/io/androidmultipleidentifier/BuildConfig.java
- flutter.io.androidmultipleidentifier.BuildConfig
-flutter/io/androidmultipleidentifier/AndroidMultipleIdentifierPlugin.java
- flutter.io.androidmultipleidentifier.AndroidMultipleIdentifierPlugin

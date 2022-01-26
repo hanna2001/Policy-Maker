@@ -1,4 +1,0 @@
-com/rioapp/demo/imeiplugin/ImeiPlugin.java
- com.rioapp.demo.imeiplugin.ImeiPlugin
-com/rioapp/demo/imeiplugin/BuildConfig.java
- com.rioapp.demo.imeiplugin.BuildConfig
