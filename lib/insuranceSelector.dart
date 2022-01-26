@@ -787,14 +787,16 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
                                 color: Color.fromRGBO(190, 86, 131, 1.0),
                                 size: 25.0,
                               ),
-                              Text(
-                                  options.length < 7
-                                      ? "Choose the Sum to be Insured"
-                                      : "₹${(format.format(int.parse(options[6]))).substring(3)} /-",
-                                  style: TextStyle(
-                                    fontSize: 17.3,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black))
+                              Flexible(
+                                child: Text(
+                                    options.length < 7
+                                        ? "Choose the Sum to be Insured"
+                                        : "₹${(format.format(int.parse(options[6]))).substring(3)} /-",
+                                    style: TextStyle(
+                                      fontSize: 17.3,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black)),
+                              )
                             ],
                           ),
                           // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),

@@ -80,6 +80,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "device_information",
+      "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/device_information-0.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "fake_async",
       "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
       "packageUri": "lib/",
@@ -148,6 +154,12 @@
     {
       "name": "flutter",
       "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/packages/flutter",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_email_sender",
+      "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_email_sender-5.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -236,6 +248,12 @@
       "languageVersion": "2.7"
     },
     {
+      "name": "imei_plugin",
+      "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/imei_plugin-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "intl",
       "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
       "packageUri": "lib/",
@@ -255,7 +273,7 @@
     },
     {
       "name": "mailer",
-      "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/mailer-5.0.2",
+      "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/mailer-5.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -372,6 +390,12 @@
       "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler_platform_interface-3.7.0",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "pin_code_fields",
+      "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/pin_code_fields-7.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "platform",
@@ -608,7 +632,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2022-01-21T07:29:19.906288Z",
+  "generated": "2022-01-26T09:37:55.999654Z",
   "generator": "pub",
   "generatorVersion": "2.15.1"
 }

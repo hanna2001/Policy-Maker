@@ -1,12 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:http/http.dart'
-    as http; // add the http plugin in pubspec.yaml file.
+import 'package:http/http.dart' as http; // add the http plugin in pubspec.yaml file.
 
 import 'User.dart';
 
 class UserServices {
-  static const ROOT = 'https://kohli.studio/apps/privacy/user_information.php';
+  static const ROOT = 'https://kohli.studio/apps/ks-insurebuddy/user_information.php';
 
   // Method to create the table Responsess.
   static Future<String> createUser(
@@ -18,17 +17,19 @@ class UserServices {
       map['Expiry'] = date;
       print(map['Expiry'] + " Expiry Date");
       map['IMEI'] = IMEI;
+      print(map);
       var url=Uri.parse(ROOT);
       final response = await http.post(url, body: map);
-      print('Table 1 response: ${response.body}');
+      // var res=jsonDecode(response.body);
+      print('Table 1 response: $response');
       print(response.toString());
-      if (response.body.contains("success")) {
+      if (response.body.contains("success"))  {
         return "User created Successfully";
       } else {
         return "Error Occured";
       }
     } catch (e) {
-      return e.toString();
+      return '---Err'+e.toString();
     }
   }
 
@@ -100,15 +101,13 @@ class UserServices {
   }
 
   static Future<bool> userExists(String Phone) async {
-    print("-----Reached");
     var map = Map<String, dynamic>();
     map['action'] = "user_exists";
     map['Phone'] = Phone;
     var url=Uri.parse(ROOT);
-      final response = await http.post(url, body: map);
+      final response = await http.post(url, body: map,);
     print('------Table 4 response: ${response.body}');
     print(response.statusCode);
-    print("-----ReachedEnd");
     if (200 == response.statusCode) {
       if (response.body == "Exists") {
         return true;

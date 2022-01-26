@@ -6,6 +6,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:mailer/smtp_server/gmail.dart';
 import 'package:policy_maker/services.dart';
 import 'package:policy_maker/userServices.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,6 +14,7 @@ import 'package:mailer/smtp_server/mailgun.dart';
 import 'dart:math';
 import 'package:mailer/mailer.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mailer/smtp_server.dart';
 
 const url = 'http://thinkdiff.net';
 const email = 'mahmud@example.com';
@@ -305,10 +307,12 @@ class _MyProfilePageState extends State<MyProfilePage> {
                   try {
                     final sendReport = await send(
                         message, mailgun("$usernameEmail", "$password"));
-                    print('Message sent: ' + sendReport.toString());
+                    print('-------------Message sent: ' + sendReport.toString());
                   } catch (e) {
-                    print('Message not sent.');
+                    print('----------Message not sent.');
                     print(e.toString());
+                    print(usernameEmail);
+                    print(password);
                   }
                   setState(() {
                     bool4 = true;

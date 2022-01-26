@@ -769,64 +769,66 @@ class ProfileFillState extends State<ProfileFill> {
                     ),
                   ),
                 ),
-                InkWell(
-                  child: new Text(
-                    emailEntered == false ? 'Send OTP' : 'Confirm',
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                  onTap: () async {
-                    if (emailEntered == false) {
-                      Random random = new Random();
-                      setState(() {
-                        randomNum = random.nextInt(10000);
-                        emailTemp = emailController.text.trim().toString();
-                        print(emailTemp);
-                        emailController.clear();
-                      });
-                      final message = Message()
-                        ..from = Address("$usernameEmail", 'Kohli Studio')
-                        ..recipients.add(emailTemp)
-                        ..subject = 'Verification Code'
-                        ..text =
-                            'This is the plain text.\nThis is line 2 of the text part.'
-                        ..html =
-                            "<h1>Verification Code for your Insurance Selector</h1>\n<p>Dear User, Your One Time password is $randomNum</p>";
-                      try {
-                        final sendReport = await send(
-                            message, mailgun("$usernameEmail", "$password"));
-                        print('Message sent: ' + sendReport.toString());
-                      } catch (e) {
-                        print('Message not sent.');
-                        print(e.toString());
-                      }
-                      setState(() {
-                        emailEntered = true;
-                        print(emailEntered);
-                      });
-                    } else {
-                      if (emailController.text.trim().toString() ==
-                          randomNum.toString()) {
-                        print("Correct OTP");
+                Flexible(
+                  child: InkWell(
+                    child: new Text(
+                      emailEntered == false ? 'Send OTP' : 'Confirm',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                    onTap: () async {
+                      if (emailEntered == false) {
+                        Random random = new Random();
                         setState(() {
-                          emailOtp = false;
-                          print(emailOtp);
+                          randomNum = random.nextInt(10000);
+                          emailTemp = emailController.text.trim().toString();
+                          print(emailTemp);
+                          emailController.clear();
                         });
-                        print(emailOtp.toString() + " EmailOtp");
+                        final message = Message()
+                          ..from = Address("$usernameEmail", 'Kohli Studio')
+                          ..recipients.add(emailTemp)
+                          ..subject = 'Verification Code'
+                          ..text =
+                              'This is the plain text.\nThis is line 2 of the text part.'
+                          ..html =
+                              "<h1>Verification Code for your Insurance Selector</h1>\n<p>Dear User, Your One Time password is $randomNum</p>";
+                        try {
+                          final sendReport = await send(
+                              message, mailgun("$usernameEmail", "$password"));
+                          print('Message sent: ' + sendReport.toString());
+                        } catch (e) {
+                          print('Message not sent.');
+                          print(e.toString());
+                        }
+                        setState(() {
+                          emailEntered = true;
+                          print(emailEntered);
+                        });
                       } else {
-                        print(emailController.text.trim().toString());
-                        print(randomNum.toString());
-                        Fluttertoast.showToast(
-                            msg: "Incorrect OTP",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.BOTTOM,
-                            timeInSecForIosWeb: 5,
-                            backgroundColor: Colors.blue,
-                            textColor: Colors.white,
-                            fontSize: 16.0);
+                        if (emailController.text.trim().toString() ==
+                            randomNum.toString()) {
+                          print("Correct OTP");
+                          setState(() {
+                            emailOtp = false;
+                            print(emailOtp);
+                          });
+                          print(emailOtp.toString() + " EmailOtp");
+                        } else {
+                          print(emailController.text.trim().toString());
+                          print(randomNum.toString());
+                          Fluttertoast.showToast(
+                              msg: "Incorrect OTP",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 5,
+                              backgroundColor: Colors.blue,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
+                        }
                       }
-                    }
-                  },
+                    },
+                  ),
                 ),
               ]),
             ],
@@ -874,7 +876,7 @@ class ProfileFillState extends State<ProfileFill> {
                           }
                         });
                         await UserServices.updateUser(
-                                "Website",
+                                "Website"??'',
                                 websiteController.text.trim().toString() == ""
                                     ? website
                                     : websiteController.text.trim().toString(),

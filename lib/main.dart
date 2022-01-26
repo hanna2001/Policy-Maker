@@ -11,8 +11,11 @@ import 'package:policy_maker/mainPage.dart';
 import 'package:policy_maker/userServices.dart';
 import 'dart:io';
 import 'Animatedbackground.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
     home: new MyApp(),
@@ -33,7 +36,7 @@ class _MyAppState extends State<MyApp> {
     internetConnectivity();
     _getSharedPrefs();
     Timer(
-        Duration(seconds: 2),
+        Duration(seconds: 4),
         () => {
               if (isVerified == true)
                 {
@@ -132,7 +135,7 @@ class _MyAppState extends State<MyApp> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          "assets/logo.png",
+                          "assets/app_icon.png",
                           width: MediaQuery.of(context).size.width / 1.5,
                         ),
                         Padding(
@@ -147,7 +150,7 @@ class _MyAppState extends State<MyApp> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      SpinKitThreeBounce(color: Colors.white),
+                      SpinKitThreeBounce(color: Colors.blue),
                       Padding(
                         padding: EdgeInsets.only(top: 20.0),
                       ),
@@ -162,7 +165,7 @@ class _MyAppState extends State<MyApp> {
                             style: TextStyle(
                                 fontFamily: 'Merienda',
                                 fontSize: 14.0,
-                                color: Colors.white),
+                                color: Colors.black),
                           ),
                           Text(
                             " ❤ ",
@@ -179,7 +182,7 @@ class _MyAppState extends State<MyApp> {
                             style: TextStyle(
                                 fontFamily: 'Oregano-Regular',
                                 fontSize: 18.0,
-                                color: Colors.white),
+                                color: Colors.black),
                           ),
                         ],
                       ),

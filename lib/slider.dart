@@ -55,182 +55,164 @@ class _ImagePageState extends State<ImagePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.light,
+        value: SystemUiOverlayStyle.dark,
         child: Container(
-          decoration: BoxDecoration(
-              // gradient: LinearGradient(
-              //     begin: Alignment.topCenter,
-              //     end: Alignment.bottomCenter,
-              //     stops: [
-              //   0.1,
-              //   0.4,
-              //   0.7,
-              //   0.9
-              // ],
-              //     colors: [
-              //   Color(0xFF3594DD),
-              //   Color(0xFF4569DB),
-              //   Color(0xFF5036D5),
-              //   Color(0xFF5B16D0)
-              // ])
-            ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.0),
-            child: ListView(
-              children: <Widget>[
-                Container(
-                  height: 500.0,
-                  child: PageView(
-                    physics: ClampingScrollPhysics(),
-                    controller: _pageController,
-                    onPageChanged: (int page) {
-                      setState(() {
-                        _currentPage = page;
-                      });
-                    },
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            SizedBox(height: 10.0),
-                            FadeAnimation(
-                              1,
-                              Container(
-                                child: Image(
-                                  image: AssetImage('assets/insurence.png'),
-                                  width: 300.0,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 10.0),
+          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
+          
+          child: ListView(
+            children: <Widget>[
+              Container(
+                height: 500.0,
+                child: PageView(
+                  physics: ClampingScrollPhysics(),
+                  controller: _pageController,
+                  onPageChanged: (int page) {
+                    setState(() {
+                      _currentPage = page;
+                    });
+                  },
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          SizedBox(height: 10.0),
+                          FadeAnimation(
+                            1,
                             Container(
-                              child: Center(
-                                child: Text(
-                                  'Find the Best Insurance \n Suitable for you',
-                                  textAlign: TextAlign.center,
-                                  style: kTitleStyle,
-                                ),
+                              child: Image(
+                                image: AssetImage('assets/insurence.png'),
+                                width: 300.0,
                               ),
                             ),
-                            SizedBox(height: 10.0),
-                            Text(
-                              "Browse through a variety of Insurance Types, Plans and Find the one most suitable to you",
-                              style: kSubtitleStyle,
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            FadeAnimation(
-                              1,
-                              Container(
-                                child: Image(
-                                  image: AssetImage('assets/web.png'),
-                                  height: 300.0,
-                                  width: 300.0,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 10.0),
-                            Container(
-                              child: Center(
-                                child: Text(
-                                  ' Know its Pros and Cons',
-                                  style: kTitleStyle,
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 10.0),
-                            Text(
-                              "Compare the Installments, Premium, Discounts and Plan features and Choose the most satisfying plans",
-                              style: kSubtitleStyle,
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            FadeAnimation(
-                              1,
-                              Container(
-                                child: Image(
-                                  image: AssetImage('assets/proandcons.png'),
-                                  height: 300.0,
-                                  width: 300.0,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 10.0),
-                            Container(
+                          ),
+                          SizedBox(height: 10.0),
+                          Container(
+                            child: Center(
                               child: Text(
-                                'Easily Share this with your loved ones',
+                                'Find the Best Insurance \n Suitable for you',
+                                textAlign: TextAlign.center,
+                                style: kTitleStyle,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 10.0),
+                          Text(
+                            "Browse through a variety of Insurance Types, Plans and Find the one most suitable to you",
+                            style: kSubtitleStyle,
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          FadeAnimation(
+                            1,
+                            Container(
+                              child: Image(
+                                image: AssetImage('assets/web.png'),
+                                height: 300.0,
+                                width: 300.0,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 10.0),
+                          Container(
+                            child: Center(
+                              child: Text(
+                                ' Know its Pros and Cons',
                                 style: kTitleStyle,
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                            SizedBox(height: 10.0),
-                            Text(
-                              " Easily share this information with anyone \n with a click",
-                              style: kSubtitleStyle,
+                          ),
+                          SizedBox(height: 10.0),
+                          Text(
+                            "Compare the Installments, Premium, Discounts and Plan features and Choose the most satisfying plans",
+                            style: kSubtitleStyle,
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          FadeAnimation(
+                            1,
+                            Container(
+                              child: Image(
+                                image: AssetImage('assets/proandcons.png'),
+                                height: 300.0,
+                                width: 300.0,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 10.0),
+                          Container(
+                            child: Text(
+                              'Easily Share this with your loved ones',
+                              style: kTitleStyle,
                               textAlign: TextAlign.center,
                             ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: _buildPageIndicator(),
-                ),
-                _currentPage != _numPages - 1
-                    ? Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                FlatButton(
-                                  onPressed: () {
-                                    _pageController.animateToPage(_numPages-1, duration: Duration(microseconds: 300), curve: Curves.easeIn);
-                                  },
-                                  child: Icon(Icons.arrow_forward),
-                                ),
-                              ],
-                            ),
-                            //   ),
-                            // ),
-                          )
-                        ],
-                      )
-                    : Align(
-                      alignment: Alignment.bottomRight,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextButton(
-                          child: Text('Done'),
-                          onPressed: (){
-                            Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (BuildContext context) => MyHomePage()));
-                          },
                           ),
-                      )
+                          SizedBox(height: 10.0),
+                          Text(
+                            " Easily share this information with anyone \n with a click",
+                            style: kSubtitleStyle,
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
                       ),
-              ],
-            ),
+                    )
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: _buildPageIndicator(),
+              ),
+              _currentPage != _numPages - 1
+                  ? Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              FlatButton(
+                                onPressed: () {
+                                  _pageController.animateToPage(_numPages-1, duration: Duration(microseconds: 300), curve: Curves.easeIn);
+                                },
+                                child: Icon(Icons.arrow_forward),
+                              ),
+                            ],
+                          ),
+                          //   ),
+                          // ),
+                        )
+                      ],
+                    )
+                  : Align(
+                    alignment: Alignment.bottomRight,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextButton(
+                        child: Text('Done'),
+                        onPressed: (){
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) => MyHomePage()));
+                        },
+                        ),
+                    )
+                    ),
+            ],
           ),
         ),
       ),

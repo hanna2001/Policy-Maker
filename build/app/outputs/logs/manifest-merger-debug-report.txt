@@ -1,12 +1,13 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-55:12
-INJECTED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-55:12
-INJECTED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-55:12
-INJECTED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-55:12
-MERGED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-55:12
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-64:12
+INJECTED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-64:12
+INJECTED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-64:12
+INJECTED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-64:12
+MERGED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-64:12
 MERGED from [:firebase_auth] F:\internship\Policy-Maker\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core] F:\internship\Policy-Maker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [:image_picker] F:\internship\Policy-Maker\build\image_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [:flutter_plugin_android_lifecycle] F:\internship\Policy-Maker\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:device_id] F:\internship\Policy-Maker\build\device_id\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
@@ -14,8 +15,10 @@ MERGED from [:image_gallery_saver] F:\internship\Policy-Maker\build\image_galler
 MERGED from [:url_launcher_android] F:\internship\Policy-Maker\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-14:12
 MERGED from [:path_provider_android] F:\internship\Policy-Maker\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:share_files_and_screenshot_widgets] F:\internship\Policy-Maker\build\share_files_and_screenshot_widgets\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
+MERGED from [:imei_plugin] F:\internship\Policy-Maker\build\imei_plugin\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:image_cropper] F:\internship\Policy-Maker\build\image_cropper\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences_android] F:\internship\Policy-Maker\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:device_information] F:\internship\Policy-Maker\build\device_information\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:fluttertoast] F:\internship\Policy-Maker\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:share] F:\internship\Policy-Maker\build\share\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:permission_handler] F:\internship\Policy-Maker\build\permission_handler\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
@@ -34,15 +37,15 @@ MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\User
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\133a2bc5d6c202a7925a7c08ede0ad48\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\44a03b36fe33fecdedef44938fe93181\jetified-play-services-base-17.1.0\AndroidManifest.xml:17:1-29:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\faafae4996abbba12878e822e6edf917\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.yalantis:ucrop:2.2.7] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\c7a32d14472df6daff032a10f6e36e96\jetified-ucrop-2.2.7\AndroidManifest.xml:2:1-11:12
-MERGED from [androidx.mediarouter:mediarouter:1.1.0-alpha01] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1b0125be5b94da7ad085e5e3bb6e11bb\mediarouter-1.1.0-alpha01\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\0a18cae7efc706a224a5bdd87d10e701\appcompat-1.3.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.transition:transition:1.4.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f52d8b45c5d1119850c3c61db8cc8a60\transition-1.4.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\215a3c35f1d262eccc4a474e83851ef1\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.mediarouter:mediarouter:1.1.0-alpha01] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1b0125be5b94da7ad085e5e3bb6e11bb\mediarouter-1.1.0-alpha01\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.palette:palette:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\9b17149d625b42bec5ffa9d34874a532\palette-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\0acb8a6f10e71673aea37826124bb27c\jetified-play-services-measurement-impl-20.0.2\AndroidManifest.xml:17:1-31:12
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\2cc62731e80c5cc76ba86a1940ec6194\jetified-play-services-stats-17.0.2\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\32e3635515994fab05f4ebb093a4455a\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.yalantis:ucrop:2.2.7] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\c7a32d14472df6daff032a10f6e36e96\jetified-ucrop-2.2.7\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\0a18cae7efc706a224a5bdd87d10e701\appcompat-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.4.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f52d8b45c5d1119850c3c61db8cc8a60\transition-1.4.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.media:media:1.1.0-alpha01] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1e589fe025f42c5deef142400910c113\media-1.1.0-alpha01\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0-alpha01] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\28d3cd155211018c5342771dee7d4128\recyclerview-1.1.0-alpha01\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f7050a572696c4bcd8f2570f611d11a5\jetified-play-services-ads-identifier-18.0.0\AndroidManifest.xml:17:1-27:12
@@ -55,14 +58,14 @@ MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\hann
 MERGED from [androidx.fragment:fragment:1.3.4] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\8cd22cd5404d3f29d89c7fa1e6f8d821\fragment-1.3.4\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\507f52dfda91000b8ccc9e148325253d\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\71e7e8aa9007ccbf80abbf31e3c79ce5\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.activity:activity:1.2.3] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f3a8ad8df9f033faec5b1f8fe12b11de\jetified-activity-1.2.3\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.appcompat:appcompat-resources:1.3.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\e06309777259376d2bcf11f8a2ff5e94\jetified-appcompat-resources-1.3.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\437ed8a5208f885cc0722ffb0b73eeb2\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f25e0756c69bd8132a291cafc4bbe5d9\coordinatorlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\437ed8a5208f885cc0722ffb0b73eeb2\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\27248a7313c85e2b0010914457f6ec18\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\5098151cf53396cc8d6b5f2fbfb1f792\customview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\ee78d3279dd93ea82b69a00c022f9e0d\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\3d607c7be64d56b11decf14308f26152\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.2.3] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f3a8ad8df9f033faec5b1f8fe12b11de\jetified-activity-1.2.3\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.3.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\e06309777259376d2bcf11f8a2ff5e94\jetified-appcompat-resources-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\35466863b239f02aaf2921d9180ed007\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\08d63896a86eec7283e8fcd074ecf8f6\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core:1.6.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\a83c0dd2fac145f5ded078c7c0d58daf\core-1.6.0\AndroidManifest.xml:17:1-26:12
@@ -72,13 +75,13 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\727e9ab626cf88ddf680fc46229a253a\jetified-firebase-components-17.0.0\AndroidManifest.xml:15:1-23:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\2df1865c5f1af6cbeb8adc9fd523fcd3\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.exifinterface:exifinterface:1.3.2] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1df94e1573dc02d60278db5757e1c1f5\exifinterface-1.3.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\dcc226459d41020bd8adff4479407912\lifecycle-runtime-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\fd93bb9cf488f9777e2b6e9711100fc3\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\62e42da25c03809c93f1d1004968b265\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\523b3d60606753058de3f45406827189\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\dcc226459d41020bd8adff4479407912\lifecycle-runtime-2.3.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\fe5f991edda11b4ccba9927ab8c309c7\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1534d1e6bcc5f7359ca99df602dc9f4d\jetified-savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\c1810c68bac8c5b75cd8fb1757645c10\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\fd93bb9cf488f9777e2b6e9711100fc3\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.print:print:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\62e42da25c03809c93f1d1004968b265\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\eab69854d8f1e4697dbd5021c39daf05\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\5d0b748b81360d77f57264a31e0f1fdf\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\11d223c042db23fa48f84c3b63f25f3a\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
@@ -92,30 +95,26 @@ INJECTED from F:\internship\Policy-Maker\android\app\src\debug\AndroidManifest.x
 		INJECTED from F:\internship\Policy-Maker\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-55:12
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-64:12
 		INJECTED from F:\internship\Policy-Maker\android\app\src\debug\AndroidManifest.xml
 	android:versionCode
 		INJECTED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-55:12
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:1-64:12
 		INJECTED from F:\internship\Policy-Maker\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:1:11-69
-uses-permission#android.permission.READ_PHONE_STATE
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:3:5-75
-MERGED from [:device_id] F:\internship\Policy-Maker\build\device_id\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-75
-MERGED from [:device_id] F:\internship\Policy-Maker\build\device_id\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-75
-MERGED from [:android_multiple_identifier] F:\internship\Policy-Maker\build\android_multiple_identifier\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-75
-MERGED from [:android_multiple_identifier] F:\internship\Policy-Maker\build\android_multiple_identifier\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-75
+uses-permission#android.permission.READ_PRIVILEGED_PHONE_STATE
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:3:5-86
 	android:name
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:3:22-72
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:3:22-83
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:4:5-80
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:5:5-80
 	android:name
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:4:22-78
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:5:22-78
 uses-permission#android.permission.INTERNET
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:5:5-66
-MERGED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:5:5-66
-MERGED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:5:5-66
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:6:5-66
+MERGED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:6:5-66
+MERGED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:6:5-66
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\069ab0535480a5cb1fa35973ce16309b\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\069ab0535480a5cb1fa35973ce16309b\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\8d5eb40d1f4dc329b25822d74a8bf7b7\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:22:5-67
@@ -129,13 +128,29 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\e45c3e085db583334f85251270ec0f07\jetified-play-services-measurement-sdk-api-20.0.2\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\e45c3e085db583334f85251270ec0f07\jetified-play-services-measurement-sdk-api-20.0.2\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:5:22-64
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:7:5-74
+MERGED from [:device_id] F:\internship\Policy-Maker\build\device_id\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-75
+MERGED from [:device_id] F:\internship\Policy-Maker\build\device_id\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-75
+MERGED from [:imei_plugin] F:\internship\Policy-Maker\build\imei_plugin\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-75
+MERGED from [:imei_plugin] F:\internship\Policy-Maker\build\imei_plugin\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-75
+MERGED from [:android_multiple_identifier] F:\internship\Policy-Maker\build\android_multiple_identifier\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-75
+MERGED from [:android_multiple_identifier] F:\internship\Policy-Maker\build\android_multiple_identifier\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-75
+	android:name
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:7:22-72
+uses-permission#android.permission.CALL_PHONE
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:8:5-68
+	android:name
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:8:22-66
 application
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:11:5-54:19
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:17:5-62:19
 MERGED from [:firebase_auth] F:\internship\Policy-Maker\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_auth] F:\internship\Policy-Maker\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] F:\internship\Policy-Maker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] F:\internship\Policy-Maker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-13:19
+MERGED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-17:19
+MERGED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-17:19
 MERGED from [:image_picker] F:\internship\Policy-Maker\build\image_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-17:19
 MERGED from [:image_picker] F:\internship\Policy-Maker\build\image_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-17:19
 MERGED from [:url_launcher_android] F:\internship\Policy-Maker\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-12:19
@@ -183,61 +198,63 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\ha
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.6.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\a83c0dd2fac145f5ded078c7c0d58daf\core-1.6.0\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:13:9-36
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:19:9-36
 	android:icon
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:14:9-40
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:20:9-40
 	android:name
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:12:9-57
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:18:9-57
 activity#com.kohli.studio.policy_maker.MainActivity
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:15:9-44:20
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:21:9-52:20
 	android:launchMode
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:17:13-43
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:23:13-43
 	android:hardwareAccelerated
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:20:13-47
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:26:13-47
 	android:windowSoftInputMode
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:21:13-55
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:27:13-55
+	android:exported
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:28:13-36
 	android:configChanges
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:19:13-163
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:25:13-163
 	android:theme
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:18:13-47
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:24:13-47
 	android:name
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:16:13-41
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:22:13-41
 meta-data#io.flutter.embedding.android.NormalTheme
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:27:13-30:17
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:34:13-37:17
 	android:resource
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:29:15-52
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:36:15-52
 	android:name
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:28:15-70
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:35:15-70
 meta-data#io.flutter.embedding.android.SplashScreenDrawable
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:36:13-39:17
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:43:13-46:17
 	android:resource
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:38:15-61
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:45:15-61
 	android:name
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:37:15-79
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:44:15-79
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:40:13-43:29
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:48:13-51:29
 action#android.intent.action.MAIN
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:41:17-68
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:49:17-68
 	android:name
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:41:25-66
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:49:25-66
 category#android.intent.category.LAUNCHER
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:42:17-76
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:50:17-76
 	android:name
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:42:27-74
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:50:27-74
 activity#com.yalantis.ucrop.UCropActivity
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:45:15-48:75
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:53:15-56:75
 	android:screenOrientation
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:47:17-53
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:55:17-53
 	android:theme
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:48:17-73
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:56:17-73
 	android:name
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:46:17-64
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:54:17-64
 meta-data#flutterEmbedding
-ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:51:9-53:33
+ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:59:9-61:33
 	android:value
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:53:13-30
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:61:13-30
 	android:name
-		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:52:13-44
+		ADDED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml:60:13-44
 uses-sdk
 INJECTED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from F:\internship\Policy-Maker\android\app\src\main\AndroidManifest.xml
@@ -246,6 +263,8 @@ MERGED from [:firebase_auth] F:\internship\Policy-Maker\build\firebase_auth\inte
 MERGED from [:firebase_auth] F:\internship\Policy-Maker\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] F:\internship\Policy-Maker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] F:\internship\Policy-Maker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:image_picker] F:\internship\Policy-Maker\build\image_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:image_picker] F:\internship\Policy-Maker\build\image_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_plugin_android_lifecycle] F:\internship\Policy-Maker\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
@@ -260,10 +279,14 @@ MERGED from [:path_provider_android] F:\internship\Policy-Maker\build\path_provi
 MERGED from [:path_provider_android] F:\internship\Policy-Maker\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:share_files_and_screenshot_widgets] F:\internship\Policy-Maker\build\share_files_and_screenshot_widgets\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:share_files_and_screenshot_widgets] F:\internship\Policy-Maker\build\share_files_and_screenshot_widgets\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:imei_plugin] F:\internship\Policy-Maker\build\imei_plugin\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:imei_plugin] F:\internship\Policy-Maker\build\imei_plugin\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:image_cropper] F:\internship\Policy-Maker\build\image_cropper\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:image_cropper] F:\internship\Policy-Maker\build\image_cropper\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_android] F:\internship\Policy-Maker\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_android] F:\internship\Policy-Maker\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:device_information] F:\internship\Policy-Maker\build\device_information\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:device_information] F:\internship\Policy-Maker\build\device_information\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:fluttertoast] F:\internship\Policy-Maker\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:fluttertoast] F:\internship\Policy-Maker\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:share] F:\internship\Policy-Maker\build\share\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
@@ -300,16 +323,10 @@ MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\hanna\.g
 MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\44a03b36fe33fecdedef44938fe93181\jetified-play-services-base-17.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\faafae4996abbba12878e822e6edf917\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\faafae4996abbba12878e822e6edf917\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.github.yalantis:ucrop:2.2.7] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\c7a32d14472df6daff032a10f6e36e96\jetified-ucrop-2.2.7\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.yalantis:ucrop:2.2.7] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\c7a32d14472df6daff032a10f6e36e96\jetified-ucrop-2.2.7\AndroidManifest.xml:7:5-9:41
-MERGED from [androidx.mediarouter:mediarouter:1.1.0-alpha01] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1b0125be5b94da7ad085e5e3bb6e11bb\mediarouter-1.1.0-alpha01\AndroidManifest.xml:20:5-44
-MERGED from [androidx.mediarouter:mediarouter:1.1.0-alpha01] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1b0125be5b94da7ad085e5e3bb6e11bb\mediarouter-1.1.0-alpha01\AndroidManifest.xml:20:5-44
-MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\0a18cae7efc706a224a5bdd87d10e701\appcompat-1.3.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\0a18cae7efc706a224a5bdd87d10e701\appcompat-1.3.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.4.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f52d8b45c5d1119850c3c61db8cc8a60\transition-1.4.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.4.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f52d8b45c5d1119850c3c61db8cc8a60\transition-1.4.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\215a3c35f1d262eccc4a474e83851ef1\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\215a3c35f1d262eccc4a474e83851ef1\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.mediarouter:mediarouter:1.1.0-alpha01] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1b0125be5b94da7ad085e5e3bb6e11bb\mediarouter-1.1.0-alpha01\AndroidManifest.xml:20:5-44
+MERGED from [androidx.mediarouter:mediarouter:1.1.0-alpha01] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1b0125be5b94da7ad085e5e3bb6e11bb\mediarouter-1.1.0-alpha01\AndroidManifest.xml:20:5-44
 MERGED from [androidx.palette:palette:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\9b17149d625b42bec5ffa9d34874a532\palette-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.palette:palette:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\9b17149d625b42bec5ffa9d34874a532\palette-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\0acb8a6f10e71673aea37826124bb27c\jetified-play-services-measurement-impl-20.0.2\AndroidManifest.xml:20:5-44
@@ -318,6 +335,12 @@ MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\hanna\.
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\2cc62731e80c5cc76ba86a1940ec6194\jetified-play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\32e3635515994fab05f4ebb093a4455a\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\32e3635515994fab05f4ebb093a4455a\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.yalantis:ucrop:2.2.7] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\c7a32d14472df6daff032a10f6e36e96\jetified-ucrop-2.2.7\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.yalantis:ucrop:2.2.7] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\c7a32d14472df6daff032a10f6e36e96\jetified-ucrop-2.2.7\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\0a18cae7efc706a224a5bdd87d10e701\appcompat-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\0a18cae7efc706a224a5bdd87d10e701\appcompat-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.4.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f52d8b45c5d1119850c3c61db8cc8a60\transition-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.4.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f52d8b45c5d1119850c3c61db8cc8a60\transition-1.4.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.media:media:1.1.0-alpha01] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1e589fe025f42c5deef142400910c113\media-1.1.0-alpha01\AndroidManifest.xml:20:5-44
 MERGED from [androidx.media:media:1.1.0-alpha01] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1e589fe025f42c5deef142400910c113\media-1.1.0-alpha01\AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.1.0-alpha01] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\28d3cd155211018c5342771dee7d4128\recyclerview-1.1.0-alpha01\AndroidManifest.xml:20:5-44
@@ -342,14 +365,10 @@ MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\hanna\.gradle\caches\t
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\507f52dfda91000b8ccc9e148325253d\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\71e7e8aa9007ccbf80abbf31e3c79ce5\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\71e7e8aa9007ccbf80abbf31e3c79ce5\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.2.3] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f3a8ad8df9f033faec5b1f8fe12b11de\jetified-activity-1.2.3\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.2.3] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f3a8ad8df9f033faec5b1f8fe12b11de\jetified-activity-1.2.3\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.3.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\e06309777259376d2bcf11f8a2ff5e94\jetified-appcompat-resources-1.3.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.3.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\e06309777259376d2bcf11f8a2ff5e94\jetified-appcompat-resources-1.3.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\437ed8a5208f885cc0722ffb0b73eeb2\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\437ed8a5208f885cc0722ffb0b73eeb2\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f25e0756c69bd8132a291cafc4bbe5d9\coordinatorlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f25e0756c69bd8132a291cafc4bbe5d9\coordinatorlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\437ed8a5208f885cc0722ffb0b73eeb2\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\437ed8a5208f885cc0722ffb0b73eeb2\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\27248a7313c85e2b0010914457f6ec18\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\27248a7313c85e2b0010914457f6ec18\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\5098151cf53396cc8d6b5f2fbfb1f792\customview-1.0.0\AndroidManifest.xml:20:5-44
@@ -358,6 +377,10 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\hann
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\ee78d3279dd93ea82b69a00c022f9e0d\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\3d607c7be64d56b11decf14308f26152\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\3d607c7be64d56b11decf14308f26152\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.2.3] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f3a8ad8df9f033faec5b1f8fe12b11de\jetified-activity-1.2.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.3] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\f3a8ad8df9f033faec5b1f8fe12b11de\jetified-activity-1.2.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.3.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\e06309777259376d2bcf11f8a2ff5e94\jetified-appcompat-resources-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.3.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\e06309777259376d2bcf11f8a2ff5e94\jetified-appcompat-resources-1.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\35466863b239f02aaf2921d9180ed007\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\35466863b239f02aaf2921d9180ed007\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\08d63896a86eec7283e8fcd074ecf8f6\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -376,20 +399,20 @@ MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\hanna\.gradle\caches\trans
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\2df1865c5f1af6cbeb8adc9fd523fcd3\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.exifinterface:exifinterface:1.3.2] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1df94e1573dc02d60278db5757e1c1f5\exifinterface-1.3.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.exifinterface:exifinterface:1.3.2] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1df94e1573dc02d60278db5757e1c1f5\exifinterface-1.3.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\dcc226459d41020bd8adff4479407912\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\dcc226459d41020bd8adff4479407912\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\fd93bb9cf488f9777e2b6e9711100fc3\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\fd93bb9cf488f9777e2b6e9711100fc3\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\62e42da25c03809c93f1d1004968b265\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\62e42da25c03809c93f1d1004968b265\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\523b3d60606753058de3f45406827189\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\523b3d60606753058de3f45406827189\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\dcc226459d41020bd8adff4479407912\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\dcc226459d41020bd8adff4479407912\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\fe5f991edda11b4ccba9927ab8c309c7\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\fe5f991edda11b4ccba9927ab8c309c7\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1534d1e6bcc5f7359ca99df602dc9f4d\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\1534d1e6bcc5f7359ca99df602dc9f4d\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\c1810c68bac8c5b75cd8fb1757645c10\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\c1810c68bac8c5b75cd8fb1757645c10\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\fd93bb9cf488f9777e2b6e9711100fc3\documentfile-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\fd93bb9cf488f9777e2b6e9711100fc3\documentfile-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\62e42da25c03809c93f1d1004968b265\print-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\62e42da25c03809c93f1d1004968b265\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\eab69854d8f1e4697dbd5021c39daf05\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\eab69854d8f1e4697dbd5021c39daf05\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\hanna\.gradle\caches\transforms-2\files-2.1\5d0b748b81360d77f57264a31e0f1fdf\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
@@ -438,6 +461,22 @@ ADDED from [:firebase_core] F:\internship\Policy-Maker\build\firebase_core\inter
 		ADDED from [:firebase_core] F:\internship\Policy-Maker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_core] F:\internship\Policy-Maker\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:10:17-124
+provider#com.sidlatau.flutteremailsender.FlutterEmailSenderFileProvider
+ADDED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-16:20
+	android:grantUriPermissions
+		ADDED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-47
+	android:authorities
+		ADDED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-65
+	android:exported
+		ADDED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-90
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:61
+	android:resource
+		ADDED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-58
+	android:name
+		ADDED from [:flutter_email_sender] F:\internship\Policy-Maker\build\flutter_email_sender\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
 provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
 ADDED from [:image_picker] F:\internship\Policy-Maker\build\image_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-16:20
 	android:grantUriPermissions
@@ -448,12 +487,6 @@ ADDED from [:image_picker] F:\internship\Policy-Maker\build\image_picker\interme
 		ADDED from [:image_picker] F:\internship\Policy-Maker\build\image_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-37
 	android:name
 		ADDED from [:image_picker] F:\internship\Policy-Maker\build\image_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-82
-meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [:image_picker] F:\internship\Policy-Maker\build\image_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-15:75
-	android:resource
-		ADDED from [:image_picker] F:\internship\Policy-Maker\build\image_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-72
-	android:name
-		ADDED from [:image_picker] F:\internship\Policy-Maker\build\image_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:14:17-67
 activity#io.flutter.plugins.urllauncher.WebViewActivity
 ADDED from [:url_launcher_android] F:\internship\Policy-Maker\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-11:74
 	android:exported

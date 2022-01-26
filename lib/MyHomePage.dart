@@ -1,11 +1,16 @@
 import 'dart:async';
 
 import 'package:android_multiple_identifier/android_multiple_identifier.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:imei_plugin/imei_plugin.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import 'package:otp_text_field/otp_field.dart';
+import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
-
+import 'package:device_information/device_information.dart';
 import 'package:policy_maker/animations.dart';
 import 'package:policy_maker/profile.dart';
 import 'package:policy_maker/profileFill.dart';
@@ -63,14 +68,137 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    _requestPermission();
     numberController = TextEditingController();
     emailController = TextEditingController();
     // onPressed();
-    getLink("link1");
-    getLink("link2");
-    getLink("link3");
+    // getLink("link1");
+    // getLink("link2");
+    // getLink("link3");
+
   }
 
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
+  String verificationId;
+
+  bool showLoading = false;
+
+  _requestPermission() async {
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.phone,
+    ].request();
+
+    final info = statuses[Permission.storage].toString();
+    print(info);
+  }
+
+  Future<String> getIMEI()async{
+    String imei;
+    try{
+        imei = await DeviceInformation.deviceIMEINumber;
+    }catch(e){
+        imei='no!';
+    }
+    return imei;
+  }
+  Future<bool> signInWithPhoneAuthCredential(
+      PhoneAuthCredential phoneAuthCredential) async {
+    setState(() {
+      showLoading = true;
+    });
+
+    try {
+      final authCredential =
+          await _auth.signInWithCredential(phoneAuthCredential);
+
+      setState(() {
+        showLoading = false;
+      });
+
+      if(authCredential?.user != null){
+        return true;
+      }
+      else return false;
+
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        showLoading = false;
+      });
+
+      print(e.message);
+      if(resendOtp==false){
+        print("Incorrect OTP");
+        Fluttertoast.showToast(
+          msg: "OTP is incorrect.",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 5,
+          backgroundColor: Colors.blue,
+          textColor: Colors.white,
+          fontSize: 16.0);
+      }
+      else{
+        print("Timeout");
+        Fluttertoast.showToast(
+          msg: "OTP Timeout.\nPlease resend OTP",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 5,
+          backgroundColor: Colors.blue,
+          textColor: Colors.white,
+          fontSize: 16.0);
+      }
+      return false;
+          // numberController.clear();
+    }
+  }
+
+  void verifyNumber() async{
+    
+                                  await _auth.verifyPhoneNumber(
+                                    phoneNumber: '+91'+numberController.text,
+                                    verificationCompleted: (phoneAuthCredential) async {
+                                      setState(() {
+                                        showLoading = false;
+                                      });
+                                      // signInWithPhoneAuthCredential(phoneAuthCredential);
+                                      //  Navigator.push(context,MaterialPageRoute(builder: (context) => ProfileFill()));
+                                    },
+                                    verificationFailed: (verificationFailed) async {
+                                      setState(() {
+                                        showLoading = false;
+                                      });
+                                      print('----'+verificationFailed.message);
+                                      Fluttertoast.showToast(
+                                                    msg: 'Verification Error',
+                                                    toastLength: Toast.LENGTH_SHORT,
+                                                    gravity: ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 5,
+                                                    backgroundColor: Colors.blue,
+                                                    textColor: Colors.white,
+                                                    fontSize: 16.0);
+                                    },
+                                    codeSent: (verificationId, resendingToken) async {
+                                    
+                              // Sign the user in (or link) with the credential
+                                     
+                                      setState(() {
+                                        showLoading = false;
+                                        numOtp=true;
+                                        this.verificationId = verificationId;
+                                      });
+                                    },
+                                    codeAutoRetrievalTimeout: (verificationId) async {
+                                      setState(() {
+                                        resendOtp=true;
+
+                                      });
+                                    },
+                                  );
+  }
+
+ 
   getLink(String parameter) async {
     Services.getGST(parameter).then((result) {
       setState(() {
@@ -160,10 +288,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         padding: EdgeInsets.all(10),
                         margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
                         child: TextField(
+                          
                           controller: numberController,
                           keyboardType: TextInputType.number,
                           obscureText: false,
-                          style: TextStyle(color: Colors.blue),
+                          style: TextStyle(color: Colors.black),
                           decoration: InputDecoration(
                             focusColor: Colors.blue,
                             contentPadding: EdgeInsets.all(14),
@@ -174,181 +303,151 @@ class _MyHomePageState extends State<MyHomePage> {
                             labelText:'Enter Mobile Number',
                             labelStyle: TextStyle(color: Colors.blue),
                             prefixIcon: Icon(Icons.phone),
+                            
                           ),
                         ),
                       )
-                      :Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: OTPTextField(
-                              length: 4,
-                              width: MediaQuery.of(context).size.width,
-                              fieldWidth: 40,
-                              style: TextStyle(
-                                fontSize: 17
-                              ),
-                              textFieldAlignment: MainAxisAlignment.spaceAround,
-                              fieldStyle: FieldStyle.underline,
-                              onCompleted: (pin) {
-                                print("Completed: " + pin);
-                                otpTyped=pin;
-                              },
-                            ),
+                      :showLoading
+                        ? Center(
+                            child: CircularProgressIndicator(),
+                          ):Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: PinCodeTextField(
+                          cursorColor: Colors.black,
+                          animationCurve: Curves.fastOutSlowIn,
+                          pinTheme: PinTheme(
+                            shape: PinCodeFieldShape.box,
+                            borderRadius: BorderRadius.circular(5),
+                            fieldHeight: 50,
+                            fieldWidth: 40,
+                            inactiveFillColor: Colors.grey[50],
+                            selectedFillColor: Colors.grey[50],
+                            selectedColor: Colors.red,
+                            borderWidth: 2,
+                            errorBorderColor: Colors.purple
+                          ),
+                          keyboardType: TextInputType.number,
+                          appContext: context,
+                          length: 6,
+                        
+                          onChanged: (value){
+                            print(value);
+                          },
+                          onCompleted: (value) {
+                            setState(() {
+                              otpTyped=value;
+                            });
+                            print("Completed: " + value);
+                            print(otpTyped);
+                          },
+                        ),
                       ),
                     ),
                     numOtp == false
                         ? new Container(
-                            width: 0,
+                            width: 00,
                             height: 0,
+                            color: Colors.blue,
                           )
-                        : resendOtp == true
-                            ? new InkWell(
-                                child: Container(
-                                  margin: EdgeInsets.all(10),
-                                  child: new Text(
-                                    'Resend OTP',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                onTap: () async {
-                                  setState(() {
-                                    resendOtp = false;
-                                    print("---Resend OTP"+resendOtp.toString());
-                                  });
-                                  Timer(Duration(seconds: 30), () {
-                                    setState(() {
-                                      resendOtp = true;
-                                      print("---Resend OTP2"+resendOtp.toString());
-                                    });
-                                  });
-                                  String link =
-                                      "http://websms.kohliconnect.com/app/smsapi/index.php?key=55DFE218F61F0F&campaign=0&routeid=9&type=text&contacts=" +
-                                          number +
-                                          "&senderid=KOHLIC&msg=Dear+User+Your+OTP+is+" +
-                                          randomNumber.toString();
-                                  print(link);
-                                  var f = await http.get(Uri.parse(link));
-                                  print(f.body.toString());
-                                  try {
-                                    await http.post(Uri.parse("http://websms.kohliconnect.com/app/miscapi/55DFE218F61F0F/getDLR/" +
-                                            f.body.toString())
-                                        );
-                                    Fluttertoast.showToast(
-                                        msg: "Resent The OTP",
-                                        toastLength: Toast.LENGTH_SHORT,
-                                        gravity: ToastGravity.BOTTOM,
-                                        timeInSecForIosWeb: 5,
-                                        backgroundColor: Colors.blue,
-                                        textColor: Colors.white,
-                                        fontSize: 16.0);
-                                  } catch (e) {
-                                    print(e.toString());
-                                  }
-                                },
-                              )
-                            : Container(
-                                padding: EdgeInsets.all(10),
-                                child: new Text(
-                                  'Resend available in a few seconds',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
+                        : Column(
+                          children: [
+                            TextButton(
+                              onPressed: (){
+                                setState(() {
+                                  numOtp=false;
+                                });
+                              },
+                              child: RichText(
+                                
+                                text: TextSpan(
+                                  text: 'Wrong number?',
+                                  style: TextStyle(color: Colors.blue,decoration: TextDecoration.underline),
+                                  children: [
+                                    TextSpan(
+                                      text: ' '+numberController.text,
+                                      style: TextStyle(color: Colors.black,decoration: TextDecoration.none)
+                                    )
+                                  ]
                                 ),
                               ),
+                            ),
+                            resendOtp == true
+                                ? new InkWell(
+                                    child: Container(
+                                      margin: EdgeInsets.all(10),
+                                      child: new Text(
+                                        'Resend OTP',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    onTap: () async {
+                                      print("---"+numberController.text);
+                                      setState(() {
+                                        resendOtp=false;
+                                      });
+                                      verifyNumber();
+                                    },
+                                  )
+                                : Container(
+                                    padding: EdgeInsets.all(10),
+                                    child: new Text(
+                                      'Resend available in a few seconds',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                          ],
+                        ),
                     FadeAnimation(
                       2,
                       Container(
                         margin: EdgeInsets.fromLTRB(25, 0, 20, 25),
                         child: numOtp == false
                             ? new RaisedButton(
-                                padding: EdgeInsets.all(10),
                                 shape: StadiumBorder(),
                                 color: Colors.blue,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    
-                                    Container(
-                                      padding: const EdgeInsets.all(8),
-                                      decoration: BoxDecoration(
-                                        borderRadius: const BorderRadius.all(
-                                            Radius.circular(20)),
-                                      ),
-                                      child: Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Colors.white,
-                                        size: 16,
-                                      ),
-                                    )
-                                  ],
+                                child: Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: Colors.white,
+                                  size: 16,
                                 ),
                                 onPressed: () async {
-                                  Timer(Duration(seconds: 30), () {
-                                    setState(() {
-                                      resendOtp = true;
-                                      print(resendOtp);
-                                    });
-                                  });
-                                  Random random = new Random();
-                                  int randomNum = random.nextInt(10000);
-                                  print("OPT "+randomNum.toString());
-                                  if (numberController.text
-                                          .trim()
-                                          .toString()
-                                          .length ==
-                                      10) {
+                                  
                                     bool present = false;
-                                    print("-----Present"+present.toString());
-                                    // await UserServices.userExists(
-                                    //         numberController.text
-                                    //             .trim()
-                                    //             .toString())
-                                    //     .then((result) {
-                                    //   setState(() {
-                                    //     present = result;
+                                    await UserServices.userExists(
+                                            numberController.text
+                                                .trim()
+                                                .toString())
+                                        .then((result) {
+                                      setState(() {
+                                        present = result;
                                         
-                                    //   });
-                                    //   print("---await-----"+present.toString());
-                                    // });
-                                    print("---await-----"+present.toString());
+                                      });
+                                    });
                                     if (present == false) {
                                       print("------Not present already");
                                       setState(() {
-                                        numOtp = true;
-                                        number = numberController.text
-                                            .trim()
-                                            .toString();
-                                        numberController.clear();
-                                        randomNumber = randomNum.toString();
+                                          showLoading = true;
+                                          number=numberController.text;
                                       });
-                                      while (otpSent == false) {
-                                        try {
-                                          String link = link1[smsCount] +
-                                              number +
-                                              link2[smsCount] +
-                                              randomNumber.toString();
-                                          print("link"+link);
-                                          var url=Uri.parse(link);
-                                          var f = await http.get(url);
-                                          print("---f.body"+f.body.toString());
-                                          await http.post(Uri.parse(link3[smsCount] +
-                                              f.body.toString()));
-                                          setState(() {
-                                            otpSent = true;
-                                          });
-                                        } catch (e) {
-                                          print("Did not send");
-                                          setState(() {
-                                            otpSent = false;
-                                            smsCount =
-                                                (smsCount + 1) % (link1.length);
-                                          });
-                                          print("---reoe"+e.toString());
-                                        }
+                                      if(number.length==10)
+                                        verifyNumber();
+                                      else{
+                                        int len=number.length;
+                                        Fluttertoast.showToast(
+                                                    msg: (len>10)?'Mobile number long':'Mobile number too shot',
+                                                    toastLength: Toast.LENGTH_SHORT,
+                                                    gravity: ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 5,
+                                                    backgroundColor: Colors.blue,
+                                                    textColor: Colors.white,
+                                                    fontSize: 16.0);
                                       }
-                                    } else {
+                                    }
+                                    else {
                                       print("present already");
 
                                       String IMEI = "";
@@ -382,13 +481,19 @@ class _MyHomePageState extends State<MyHomePage> {
                                             .trim()
                                             .toString();
                                       });
-                                      await AndroidMultipleIdentifier
-                                          .requestPermission();
-                                      Map idMap =
-                                          await AndroidMultipleIdentifier.idMap;
+                                      String imei='no!';//idMap["androidId"];
+                                      
+                                      imei=await getIMEI();
+                                      if(imei=='no!')
+                                      {
+                                          
+                                          await _requestPermission();
+                                          imei=await getIMEI();
+                                      }
 
-                                      String imei = idMap["androidId"];
-                                      print("IMEi: " + imei);
+                                      if(imei!='no!'){
+
+                                        print("-----imei "+imei);
                                       if (IMEI == imei) {
                                         print(
                                             "Same IMEI ... Confirming the same device");
@@ -420,32 +525,35 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       MyMainPage()));
                                         }
                                       }
+                                      else{
+                                        Fluttertoast.showToast(
+                                              msg:
+                                                  "You are not using the same device",
+                                              toastLength: Toast.LENGTH_SHORT,
+                                              gravity: ToastGravity.BOTTOM,
+                                              timeInSecForIosWeb: 5,
+                                              backgroundColor: Colors.blue,
+                                              textColor: Colors.white,
+                                              fontSize: 16.0);
+                                        print(
+                                            "Same IMEI ... Confirming the same device....not same device");
+                                      }
+                                      
+                                      }
+                                      else{
+                                         Fluttertoast.showToast(
+                                              msg:
+                                                  "Please allow Phone permission and try again later",
+                                              toastLength: Toast.LENGTH_SHORT,
+                                              gravity: ToastGravity.BOTTOM,
+                                              timeInSecForIosWeb: 5,
+                                              backgroundColor: Colors.blue,
+                                              textColor: Colors.white,
+                                              fontSize: 16.0);
+                                      }
+
+                                      
                                     }
-                                  } else if (numberController.text
-                                          .trim()
-                                          .toString()
-                                          .length !=
-                                      10) {
-                                    Fluttertoast.showToast(
-                                        msg:
-                                            "Please Provide valid mobile number.",
-                                        toastLength: Toast.LENGTH_SHORT,
-                                        gravity: ToastGravity.BOTTOM,
-                                        timeInSecForIosWeb: 5,
-                                        backgroundColor: Colors.blue,
-                                        textColor: Colors.white,
-                                        fontSize: 16.0);
-                                  } else {
-                                    Fluttertoast.showToast(
-                                        msg:
-                                            "Please Provide Your mobile number",
-                                        toastLength: Toast.LENGTH_SHORT,
-                                        gravity: ToastGravity.BOTTOM,
-                                        timeInSecForIosWeb: 5,
-                                        backgroundColor: Colors.blue,
-                                        textColor: Colors.white,
-                                        fontSize: 16.0);
-                                  }
                                 },
                               )
                             : new RaisedButton(
@@ -475,51 +583,70 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ],
                                 ),
                                 onPressed: () async {
-                                  if (otpTyped ==
-                                      randomNumber) {
-                                    // var collectionRef =
-                                    //     Firestore.instance.collection('User');
-                                    // var doc = await collectionRef
-                                    //     .document(
-                                    //         numberController.text.trim().toString())
-                                    //     .get();
-                                    bool exists;
-                                    await UserServices.userExists(number)
-                                        .then((value) {
-                                      exists = value;
-                                    });
-                                    print("Exist"+exists.toString());
-                                    if (!exists) {
-                                      print('New User!');
-                                      final prefs =
-                                          await SharedPreferences.getInstance();
-                                      DateTime expiryDate =
-                                          DateTime.now().add(Duration(days: 2));
-                                      print(expiryDate);
-                                      await AndroidMultipleIdentifier
-                                          .requestPermission();
-                                      Map idMap =
-                                          await AndroidMultipleIdentifier.idMap;
+                                  //  {
+                                    if(resendOtp==true){
+                                       print("Timeout");
+                                      Fluttertoast.showToast(
+                                        msg: "OTP Timeout.\nPlease resend OTP",
+                                        toastLength: Toast.LENGTH_SHORT,
+                                        gravity: ToastGravity.BOTTOM,
+                                        timeInSecForIosWeb: 5,
+                                        backgroundColor: Colors.blue,
+                                        textColor: Colors.white,
+                                        fontSize: 16.0);
+                                    }
+                                    else{
+                                      PhoneAuthCredential phoneAuthCredential =
+                                        PhoneAuthProvider.credential(
+                                            verificationId: verificationId, smsCode: otpTyped);
+                                        print('confirmOtp');
+                                      bool signin=await signInWithPhoneAuthCredential(phoneAuthCredential);
 
-                                      String imei = idMap["androidId"];
+                                      if(signin==true){
+                                        print('---------Verified');
+                                        Fluttertoast.showToast(
+                                              msg:
+                                                  "OTP Verified successfully ",
+                                              toastLength: Toast.LENGTH_SHORT,
+                                              gravity: ToastGravity.BOTTOM,
+                                              timeInSecForIosWeb: 5,
+                                              backgroundColor: Colors.blue,
+                                              textColor: Colors.white,
+                                              fontSize: 16.0);
 
-                                      // await Firestore.instance
-                                      //     .collection("User")
-                                      //     .document(number)
-                                      //     .setData({
-                                      //   "Username": "Anonymous",
-                                      //   "Company Name": "Anonymous",
-                                      //   "Email": "test@gmail.com",
-                                      //   "Logo url":
-                                      //       "https://firebasestorage.googleapis.com/v0/b/policymaker-95e91.appspot.com/o/blank_profile.jpg?alt=media&token=734b18fe-91b5-4cf6-8ce7-e06b3d5c42f2",
-                                      //   "Expiry Date": expiryDate,
-                                      //   "IMEI": imei
-                                      // });
+                                          bool exists;
+                                          await UserServices.userExists(numberController.text)
+                                            .then((value) {
+                                          exists = value;
+                                        });
+                                        print("Exist"+exists.toString());
+                                        if (!exists) {
+                                          print('New User!');
+                                          final prefs =
+                                              await SharedPreferences.getInstance();
+                                          DateTime expiryDate =
+                                              DateTime.now().add(Duration(days: 2));
+                                        print(expiryDate);
 
-                                      UserServices.createUser(number,
+                                      String imei='no!';//idMap["androidId"];
+                                      
+                                      imei=await getIMEI();
+                                      if(imei=='no!')
+                                      {
+                                          
+                                          await _requestPermission();
+                                          imei=await getIMEI();
+                                      }
+
+                                      print("-----imei "+imei);
+                                      
+                                          if(imei!='no!')
+                                          {
+                                            print('----can create');
+                                            UserServices.createUser(numberController.text,
                                               expiryDate.toString(), imei)
                                           .then((result) {
-                                        print("----24"+result);
+                                        print(result);
                                         Fluttertoast.showToast(
                                             msg: result,
                                             toastLength: Toast.LENGTH_SHORT,
@@ -554,50 +681,117 @@ class _MyHomePageState extends State<MyHomePage> {
                                               MaterialPageRoute(
                                                   builder: (context) =>
                                                       ProfileFill()));
-                                        }
-                                      });
-                                    } else {
-                                      print('Old User!');
-                                      await AndroidMultipleIdentifier
-                                          .requestPermission();
-                                      Map idMap =
-                                          await AndroidMultipleIdentifier.idMap;
+                                                }
+                                              });
+                                          }
+                                          else{
+                                             Fluttertoast.showToast(
+                                                    msg: 'Please allow Phone permission and try again later',
+                                                    toastLength: Toast.LENGTH_LONG,
+                                                    gravity: ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 5,
+                                                    backgroundColor: Colors.blue,
+                                                    textColor: Colors.white,
+                                                    fontSize: 16.0);
+                                          }
 
-                                      String imei = idMap["androidId"];
-                                      UserServices.updateUser(
-                                              "IMEI", imei, number)
-                                          .then((result) {
-                                        Fluttertoast.showToast(
-                                            msg: result,
-                                            toastLength: Toast.LENGTH_SHORT,
-                                            gravity: ToastGravity.BOTTOM,
-                                            timeInSecForIosWeb: 5,
-                                            backgroundColor: Colors.blue,
-                                            textColor: Colors.white,
-                                            fontSize: 16.0);
-                                        if (result ==
-                                            "User updated Successfully") {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      MyMainPage()));
-                                        }
-                                      });
+                                      
+                                            } else {
+                                              print('Old User!');
+                                              
+
+                                              String imei='no!';//idMap["androidId"];
+                                      
+                                              imei=await getIMEI();
+                                              if(imei=='no!')
+                                              {   
+                                                  
+
+                                                  await _requestPermission();
+                                                  imei=await getIMEI();
+                                              }
+
+                                              print("-----imei "+imei);
+                                              
+                                              if(imei!='no!'){
+
+                                                UserServices.updateUser(
+                                                      "IMEI", imei, numberController.text)
+                                                  .then((result) {
+                                                Fluttertoast.showToast(
+                                                    msg: result,
+                                                    toastLength: Toast.LENGTH_SHORT,
+                                                    gravity: ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 5,
+                                                    backgroundColor: Colors.blue,
+                                                    textColor: Colors.white,
+                                                    fontSize: 16.0);
+                                                if (result ==
+                                                    "User updated Successfully") {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              MyMainPage()));
+                                                }
+                                              });
+                                              }
+                                              else{
+                                                Fluttertoast.showToast(
+                                                    msg: 'Please Provide Phone Permision and Try again later',
+                                                    toastLength: Toast.LENGTH_SHORT,
+                                                    gravity: ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 5,
+                                                    backgroundColor: Colors.blue,
+                                                    textColor: Colors.white,
+                                                    fontSize: 16.0);
+                                              }
+                                              
+                                            }
+
+
+                                      }
+                                      else print("----------not verified");
                                     }
-                                  } else {
-                                    print("Incorrect OTP");
-                                    Fluttertoast.showToast(
-                                        msg: "OTP is incorrect.",
-                                        toastLength: Toast.LENGTH_SHORT,
-                                        gravity: ToastGravity.BOTTOM,
-                                        timeInSecForIosWeb: 5,
-                                        backgroundColor: Colors.blue,
-                                        textColor: Colors.white,
-                                        fontSize: 16.0);
-                                    numberController.clear();
-                                  }
-                                },
+
+                                        
+ //////////////////------------------------------------------------------                                   
+                                    //   bool exists;
+                                    //   await UserServices.userExists(numberController.text)
+                                    //     .then((value) {
+                                    //   exists = value;
+                                    // });
+                                    // print("Exist"+exists.toString());
+                                    // if (!exists) {
+                                    //   print('New User!');
+                                    //   final prefs =
+                                    //       await SharedPreferences.getInstance();
+                                    //   DateTime expiryDate =
+                                    //       DateTime.now().add(Duration(days: 2));
+                                    //   print(expiryDate);
+                                    //   // await AndroidMultipleIdentifier
+                                    //   //     .requestPermission();
+                                    //   // Map idMap =
+                                    //   //     await AndroidMultipleIdentifier.idMap;
+                                      
+
+                                      
+//--
+                                      // await Firestore.instance
+                                      //     .collection("User")
+                                      //     .document(number)
+                                      //     .setData({
+                                      //   "Username": "Anonymous",
+                                      //   "Company Name": "Anonymous",
+                                      //   "Email": "test@gmail.com",
+                                      //   "Logo url":
+                                      //       "https://firebasestorage.googleapis.com/v0/b/policymaker-95e91.appspot.com/o/blank_profile.jpg?alt=media&token=734b18fe-91b5-4cf6-8ce7-e06b3d5c42f2",
+                                      //   "Expiry Date": expiryDate,
+                                      //   "IMEI": imei
+                                      // });
+//--
+                                      
+                                  },
                               ),
                       ),
                     ),
@@ -611,3 +805,31 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+//747312031890731
+//747312031890731
+
+// OTPTextField(
+//                               length: 6,
+//                               width: MediaQuery.of(context).size.width-20,
+//                               fieldWidth: 40,
+//                               style: TextStyle(
+//                                 fontSize: 17
+//                               ),
+//                               otpFieldStyle: OtpFieldStyle(
+//                                 // backgroundColor: Colors.amber,
+//                                 borderColor: Colors.blue,
+//                                 focusBorderColor: Colors.black,
+//                                 enabledBorderColor: Colors.pink,
+                                
+                                
+
+//                                 ),
+//                               textFieldAlignment: MainAxisAlignment.spaceAround,
+//                               fieldStyle: FieldStyle.underline,
+//                               onCompleted: (pin) {
+//                                 print("Completed: " + pin);
+//                                 otpTyped=pin;
+//                               },
+//                             )
