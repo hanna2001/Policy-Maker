@@ -59,7 +59,8 @@ class _ImagePageState extends State<ImagePage> {
         child: Container(
           padding: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
           
-          child: ListView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Container(
                 height: 500.0,
@@ -73,7 +74,7 @@ class _ImagePageState extends State<ImagePage> {
                   },
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: EdgeInsets.only(top:40),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -175,43 +176,53 @@ class _ImagePageState extends State<ImagePage> {
                   ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: _buildPageIndicator(),
-              ),
-              _currentPage != _numPages - 1
-                  ? Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              FlatButton(
-                                onPressed: () {
-                                  _pageController.animateToPage(_numPages-1, duration: Duration(microseconds: 300), curve: Curves.easeIn);
-                                },
-                                child: Icon(Icons.arrow_forward),
-                              ),
-                            ],
-                          ),
-                          //   ),
-                          // ),
-                        )
-                      ],
-                    )
-                  : Align(
-                    alignment: Alignment.bottomRight,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextButton(
-                        child: Text('Done'),
-                        onPressed: (){
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => MyHomePage()));
-                        },
-                        ),
-                    )
+              
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: _buildPageIndicator(),
                     ),
+                    _currentPage != _numPages - 1
+                    ? Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                FlatButton(
+                                  onPressed: () {
+                                    _pageController.animateToPage(_numPages-1, duration: Duration(microseconds: 300), curve: Curves.easeIn);
+                                  },
+                                  child: Icon(Icons.arrow_forward),
+                                ),
+                              ],
+                            ),
+                            //   ),
+                            // ),
+                          )
+                        ],
+                      )
+                    : Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextButton(
+                          child: Text('Done'),
+                          onPressed: (){
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (BuildContext context) => MyHomePage()));
+                          },
+                          ),
+                      )
+                      ),
+                  ],
+                ),
+              ),
+              
             ],
           ),
         ),

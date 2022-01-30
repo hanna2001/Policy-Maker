@@ -664,7 +664,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                             onPressed: () {},
                           ),
                           title: Text(
-                            '$date',
+                            date.substring(0,16),
                             style: TextStyle(
                               fontFamily: 'Source Sans Pro',
                               fontSize: 15.0,

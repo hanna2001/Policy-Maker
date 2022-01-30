@@ -87,10 +87,13 @@ class _MyFinalPage extends State<MyFinalPage> {
   }
 
   Future<void> saveGallery() async {
+     double ratio=ui.window.devicePixelRatio;
+     print("--------"+ratio.toString());
     try {
       RenderRepaintBoundary boundary =
           previewContainer.currentContext.findRenderObject();
-      ui.Image image = await boundary.toImage(pixelRatio: 3.0);
+      ui.Image image = await boundary.toImage(pixelRatio: ratio);
+      
 
       ByteData byteData =
           await image.toByteData(format: ui.ImageByteFormat.png);
@@ -260,8 +263,8 @@ class _MyFinalPage extends State<MyFinalPage> {
                         previewContainer,
                         originalSize,
                         widget.client,
-                        "Insurance.jpg",
-                        "image/jpg",
+                        "Insurance.png",
+                        "image/png",
                         text: Website != ""
                             ? "Check out our website: $Website"
                             : "");

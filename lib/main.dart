@@ -5,6 +5,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:policy_maker/expirePage.dart';
 import 'package:policy_maker/noInternetPage.dart';
+import 'package:policy_maker/profile.dart';
+import 'package:policy_maker/profileFill.dart';
 import 'package:policy_maker/slider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:policy_maker/mainPage.dart';
@@ -41,7 +43,7 @@ class _MyAppState extends State<MyApp> {
               if (isVerified == true)
                 {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (BuildContext context) => MyMainPage()))
+                      builder: (BuildContext context) => ImagePage()))
                 }
               else
                 {

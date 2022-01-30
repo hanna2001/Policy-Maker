@@ -431,6 +431,8 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:avatar_glow/avatar_glow.dart';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_cropper/image_cropper.dart';
@@ -565,274 +567,362 @@ class ProfileFillState extends State<ProfileFill> {
     emailController = new TextEditingController(text: email);
     websiteController = new TextEditingController(text: website);
   }
+  bool loading=false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
-      appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
-        elevation: 0.0,
-        centerTitle: true,
-        title: Text(
-          'Profile',
-          style: TextStyle(
-            fontSize: 20.0,
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
-            fontFamily: 'VarelaRound',
-          ),
-        ),
-      ),
+      //backgroundColor: Colors.blueAccent,
+      
       body: ListView(
         children: <Widget>[
-          Column(children: <Widget>[
-            GestureDetector(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 12.0),
+         Column(mainAxisAlignment: MainAxisAlignment.start, children: <
+              Widget>[
+            ClipPath(
+              clipper: MyClipper(),
+              child: Container(
+                padding: EdgeInsets.only(top: 10),
+                decoration: BoxDecoration(color:Color(0xff1565c0), boxShadow: [
+                  BoxShadow(
+                      color: Colors.blueAccent,
+                      blurRadius: 50,
+                      offset: Offset(0, 0))
+                ]),
                 child: Container(
-                  width: 110.0,
-                  height: 110.0,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(80.0),
-                      image: DecorationImage(
-                          image: bytes == null
-                              ? AssetImage("assets/blank_profile.jpg")
-                              : MemoryImage(
-                                  bytes,
+                  width: double.infinity,
+                  child: Center(
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(top: 1.0),
+                            child:
+                                new Stack(fit: StackFit.loose, children: <Widget>[
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                 
+                                  Hero(
+                                    tag: "hi",
+                                    child: AvatarGlow(
+                                      glowColor: Colors.white,
+                                      endRadius: 100,
+                                      child: Material(
+                                        elevation: 50.0,
+                                        shape: CircleBorder(),
+                                        child: Container(
+                                          width: 130,
+                                          height: 130,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                              shape: BoxShape.circle,
+                                              image: DecorationImage(
+                                                  image: bytes == null
+                                                      ? AssetImage(
+                                                          "assets/app_icon.png")
+                                                      : MemoryImage(
+                                                          bytes,
+                                                        ),
+                                                  fit: BoxFit.cover)),
+
+                                          // ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 16.0),
+                                    child: new Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                        Container(
+                                          width: 120,
+                                          child: new Text(
+                                            'Profile',
+                                            style: new TextStyle(
+                                                fontSize: 26.0,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 120,
+                                          child: new Text(
+                                            'Details',
+                                            style: new TextStyle(
+                                                fontSize: 14.0,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w300),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(top: 130.0, right: 20.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    new CircleAvatar(
+                                      backgroundColor: Colors.red,
+                                      radius: 20.0,
+                                      child: IconButton(
+                                        icon: Icon(
+                                          Icons.camera_alt,
+                                          size: 20,
+                                        ),
+                                        color: Colors.white,
+                                        onPressed: () {
+                                          getImage();
+                                        },
+                                      ),
+                                    )
+                                  ],
                                 ),
-                          fit: BoxFit.cover)),
+                              ),
+                            ]),
+                          ),
+                          SizedBox(
+                            height: 50,
+                            width: 200,
+                            child: Divider(
+                              color: Colors.teal.shade700,
+                            ),
+                          ),
+                        ]),
+                  ),
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 110.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  new CircleAvatar(
-                    backgroundColor: Colors.red,
-                    radius: 20.0,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.camera_alt,
-                        size: 20,
+            Container(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        "Insurance Agent Name",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Pacifico',
+                        ),
                       ),
-                      color: Colors.white,
-                      onPressed: () {
-                        getImage();
-                      },
-                    ),
+                      Card(
+                        color: Colors.white,
+                        margin:
+                            EdgeInsets.symmetric(vertical: 6.0, horizontal: 6.0),
+                        child: ListTile(
+                          leading: Icon(
+                                Icons.person,
+                                color: Colors.blue,
+                              ),
+                              
+                          title:TextField(
+                        cursorColor: Colors.black,
+                        style: TextStyle(color: Colors.teal),
+                        controller: usernameController,
+                        obscureText: false,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Enter Insure Agent Name',
+                          hintStyle: TextStyle(color: Colors.grey)
+                        ),
+                      ) ,
+                          
+                        ),
+                      ),
+                      Text(
+                        "Company Name",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Pacifico',
+                        ),
+                      ),
+                      Card(
+                        color: Colors.white,
+                        margin:
+                            EdgeInsets.symmetric(vertical: 6.0, horizontal: 6.0),
+                        child: ListTile(
+                          leading:  Icon(
+                                Icons.account_balance_outlined,
+                                color: Colors.blue,
+                              ),
+                              
+                          title: TextField(
+                        cursorColor: Colors.black,
+                        style: TextStyle(color: Colors.teal),
+                        controller: companyController,
+                        obscureText: false,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Enter Company Name',
+                          hintStyle: TextStyle(color: Colors.grey)
+                        ),
+                      ),
+                       
+                        ),
+                      ),
+                      Text(
+                        "Insurance Agency Website",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Pacifico',
+                        ),
+                      ),
+                      Card(
+                        color: Colors.white,
+                        margin:
+                            EdgeInsets.symmetric(vertical: 6.0, horizontal: 6.0),
+                        child: ListTile(
+                          leading: Icon(
+                                Icons.blur_circular,
+                                color: Colors.blue,
+                              ),
+                          title: TextField(
+                            style: TextStyle(color: Colors.teal),
+                        cursorColor: Colors.black,
+                        controller: websiteController,
+                        obscureText: false,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Enter Insure Agency Website',
+                          hintStyle: TextStyle(color: Colors.grey)
+                        ),
+                      ),
+                          
+                        ),
+                      ),
+                      Text(
+                        "Email",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Pacifico',
+                        ),
+                      ),
+                      Card(
+                        color: Colors.white,
+                        margin:
+                            EdgeInsets.symmetric(vertical: 6.0, horizontal: 6.0),
+                        child: ListTile(
+                          leading: Icon(
+                                Icons.email,
+                                color: Colors.blue,
+                              ),
+                          title: TextField(
+                            style: TextStyle(color: Colors.teal),
+                        cursorColor: Colors.black,
+                        controller: emailController,
+                        obscureText: false,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Enter Email',
+                          hintStyle: TextStyle(color: Colors.grey)
+                        ),
+                      )
+                         
+                        ),
+                      ),
+                      Container(
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 6.0),
+                        child: Align(
+                          child: InkWell(
+                  child: loading==false? Text(
+                    emailEntered == false ? 'Send OTP':'',
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
                   )
-                ],
+                  :CircularProgressIndicator(),
+                  onTap: () async {
+                    loading=false;
+                    if(emailController.text.length==0)
+                    {
+                      Fluttertoast.showToast(msg: 'Please enter email');
+                    }
+                    else if(!emailController.text.contains('@')){
+                      Fluttertoast.showToast(msg: 'Please enter a valid email');
+                    }
+                    else{
+
+                      if (emailEntered == false) {
+                      Random random = new Random();
+                      setState(() {
+                        randomNum = random.nextInt(10000);
+                        emailTemp = emailController.text.trim().toString();
+                        print(emailTemp);
+                        loading=true;
+                        emailController.clear();
+                      });
+                      final message = Message()
+                        ..from = Address("$usernameEmail", 'Kohli Studio')
+                        ..recipients.add(emailTemp)
+                        ..subject = 'Verification Code'
+                        ..text =
+                            'This is the plain text.\nThis is line 2 of the text part.'
+                        ..html =
+                            '''<img src="../assets/Frame 1 (1).png" height="200" alt="">
+<div style="margin:auto; height: 50%; width: 70%; background-color: rgb(200, 250, 181); border-radius: 5px;">
+    <center style="padding: 10%;">
+        <h3 style="margin: 10px auto;">Verify your Account</h3>
+    <p>Your One Time password is </p>
+    <h1>$randomNum</h1>
+    </center>
+    
+</div>''';
+                      try {
+                        final sendReport = await send(
+                            message, mailgun("$usernameEmail", "$password"));
+                        print('Message sent: ' + sendReport.toString());
+                        setState(() {
+                          loading=false;
+                        });
+                        _showDialog(randomNum);
+                        
+                      } catch (e) {
+                        print('Message not sent.');
+                        print(e.toString());
+                        setState(() {
+                          loading=false;
+                        });
+                        Fluttertoast.showToast(msg: 'Please try again');
+                      }
+                      setState(() {
+                        emailEntered = true;
+                        print(emailEntered);
+                      });
+                      
+                    } else {
+                      
+                    }
+                    }
+                    
+                  },
+                ),
+                          alignment: Alignment.bottomRight,
+                          
+                        ),
+                      )
+                      
+                    ]),
               ),
             ),
           ]),
-          Padding(
-            padding: EdgeInsets.only(bottom: 25.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: 25,
-                    right: 25,
-                    top: 25,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text(
-                        'Personal Information',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: FadeAnimation(
-                  1.5,
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    child: TextField(
-                      cursorColor: Colors.white,
-                      controller: usernameController,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        hoverColor: Colors.white,
-                        focusColor: Colors.white,
-                        contentPadding: EdgeInsets.all(10),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(width: 10),
-                        ),
-                        fillColor: Colors.white,
-                        labelText: "Insurance Agent Name",
-                        labelStyle: TextStyle(color: Colors.white),
-                        prefixIcon: Icon(
-                          Icons.person,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8.0),
-                child: FadeAnimation(
-                  1.5,
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    child: TextField(
-                      controller: companyController,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        focusColor: Colors.white,
-                        contentPadding: EdgeInsets.all(10),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(width: 10),
-                        ),
-                        fillColor: Colors.deepOrange,
-                        labelText: "Company Name",
-                        labelStyle: TextStyle(color: Colors.white),
-                        prefixIcon: Icon(
-                          Icons.account_balance,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8.0),
-                child: FadeAnimation(
-                  1.5,
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    child: TextField(
-                      controller: websiteController,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        focusColor: Colors.white,
-                        contentPadding: EdgeInsets.all(10),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide(width: 10),
-                        ),
-                        fillColor: Colors.deepOrange,
-                        labelText: "Insurance agency Website",
-                        labelStyle: TextStyle(color: Colors.white),
-                        prefixIcon: Icon(Icons.web, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Row(children: <Widget>[
-                Container(
-                  height: 100,
-                  width: MediaQuery.of(context).size.width / 1.2,
-                  padding: EdgeInsets.all(20),
-                  child: TextField(
-                    enabled: emailOtp,
-                    controller: emailController,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      focusColor: Colors.white,
-                      contentPadding: EdgeInsets.all(10),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(width: 10),
-                      ),
-                      fillColor: Colors.deepOrange,
-                      labelText: "Email",
-                      labelStyle: TextStyle(color: Colors.white),
-                      prefixIcon: Icon(Icons.mail, color: Colors.white),
-                    ),
-                  ),
-                ),
-                Flexible(
-                  child: InkWell(
-                    child: new Text(
-                      emailEntered == false ? 'Send OTP' : 'Confirm',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                    onTap: () async {
-                      if (emailEntered == false) {
-                        Random random = new Random();
-                        setState(() {
-                          randomNum = random.nextInt(10000);
-                          emailTemp = emailController.text.trim().toString();
-                          print(emailTemp);
-                          emailController.clear();
-                        });
-                        final message = Message()
-                          ..from = Address("$usernameEmail", 'Kohli Studio')
-                          ..recipients.add(emailTemp)
-                          ..subject = 'Verification Code'
-                          ..text =
-                              'This is the plain text.\nThis is line 2 of the text part.'
-                          ..html =
-                              "<h1>Verification Code for your Insurance Selector</h1>\n<p>Dear User, Your One Time password is $randomNum</p>";
-                        try {
-                          final sendReport = await send(
-                              message, mailgun("$usernameEmail", "$password"));
-                          print('Message sent: ' + sendReport.toString());
-                        } catch (e) {
-                          print('Message not sent.');
-                          print(e.toString());
-                        }
-                        setState(() {
-                          emailEntered = true;
-                          print(emailEntered);
-                        });
-                      } else {
-                        if (emailController.text.trim().toString() ==
-                            randomNum.toString()) {
-                          print("Correct OTP");
-                          setState(() {
-                            emailOtp = false;
-                            print(emailOtp);
-                          });
-                          print(emailOtp.toString() + " EmailOtp");
-                        } else {
-                          print(emailController.text.trim().toString());
-                          print(randomNum.toString());
-                          Fluttertoast.showToast(
-                              msg: "Incorrect OTP",
-                              toastLength: Toast.LENGTH_SHORT,
-                              gravity: ToastGravity.BOTTOM,
-                              timeInSecForIosWeb: 5,
-                              backgroundColor: Colors.blue,
-                              textColor: Colors.white,
-                              fontSize: 16.0);
-                        }
-                      }
-                    },
-                  ),
-                ),
-              ]),
-            ],
-          ),
           FadeAnimation(
             1.5,
             Row(
@@ -840,74 +930,89 @@ class ProfileFillState extends State<ProfileFill> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
+                   decoration: BoxDecoration(
+                      boxShadow: [
+                BoxShadow(
+                  color: Colors.green.withOpacity(0.3),
+                  spreadRadius: 4,
+                  blurRadius: 15,
+                  offset: Offset(0, 6),
+                )
+              ]
+                    ),
                   height: 50,
                   width: MediaQuery.of(context).size.width / 3,
-                  child: new RaisedButton(
-                      padding: EdgeInsets.all(10),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      color: Colors.green,
-                      child: Text(
-                        "Save",
-                      ),
-                      textColor: Colors.white,
-                      onPressed: () async {
-                        print(companyController.text.trim().toString());
-                        await UserServices.updateUser(
-                                "CompanyName",
-                                companyController.text.trim().toString() == ""
-                                    ? name
-                                    : companyController.text.trim().toString(),
-                                user)
-                            .then((user) {
-                          if (user == "User updated Successfully") {
-                            print("updated company name");
-                          }
-                        });
-                        await UserServices.updateUser(
-                                "Username",
-                                usernameController.text.trim().toString() == ""
-                                    ? username
-                                    : usernameController.text.trim().toString(),
-                                user)
-                            .then((user) {
-                          if (user == "User updated Successfully") {
-                            print("updated agent name");
-                          }
-                        });
-                        await UserServices.updateUser(
-                                "Website"??'',
-                                websiteController.text.trim().toString() == ""
-                                    ? website
-                                    : websiteController.text.trim().toString(),
-                                user)
-                            .then((user) {
-                          if (user == "User updated Successfully") {
-                            print("updated website name");
-                          }
-                        });
-                        if (emailOtp == false) {
-                          await UserServices.updateUser(
-                                  "Email", emailTemp, user)
-                              .then((user) {
-                            if (user == "User updated Successfully") {
-                              print("updated email");
-                            }
-                          });
-                        }
-                        Fluttertoast.showToast(
-                            msg: "Redirecting to your InsureSelector.",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.BOTTOM,
-                            timeInSecForIosWeb: 5,
-                            backgroundColor: Colors.blue,
-                            textColor: Colors.white,
-                            fontSize: 16.0);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MyMainPage()));
-                      }),
+                  child: RaisedButton(
+                    elevation: 5,
+                     padding: EdgeInsets.all(10),
+                     shape: RoundedRectangleBorder(
+                         borderRadius: BorderRadius.circular(15.0)),
+                     color: Colors.white,
+                     child: Row(
+                       children: [Icon(Icons.check,color: Colors.green,),
+                         Text(
+                           "    Save",
+                         ),
+                       ],
+                     ),
+                     textColor: Colors.black,
+                     onPressed: () async {
+                       print(companyController.text.trim().toString());
+                       await UserServices.updateUser(
+                               "CompanyName",
+                               companyController.text.trim().toString() == ""
+                                   ? name
+                                   : companyController.text.trim().toString(),
+                               user)
+                           .then((user) {
+                         if (user == "User updated Successfully") {
+                           print("updated company name");
+                         }
+                       });
+                       await UserServices.updateUser(
+                               "Username",
+                               usernameController.text.trim().toString() == ""
+                                   ? username
+                                   : usernameController.text.trim().toString(),
+                               user)
+                           .then((user) {
+                         if (user == "User updated Successfully") {
+                           print("updated agent name");
+                         }
+                       });
+                       await UserServices.updateUser(
+                               "Website"??'',
+                               websiteController.text.trim().toString() == ""
+                                   ? website
+                                   : websiteController.text.trim().toString(),
+                               user)
+                           .then((user) {
+                         if (user == "User updated Successfully") {
+                           print("updated website name");
+                         }
+                       });
+                       if (emailOtp == false) {
+                         await UserServices.updateUser(
+                                 "Email", emailTemp, user)
+                             .then((user) {
+                           if (user == "User updated Successfully") {
+                             print("updated email");
+                           }
+                         });
+                       }
+                       Fluttertoast.showToast(
+                           msg: "Redirecting to your InsureSelector.",
+                           toastLength: Toast.LENGTH_SHORT,
+                           gravity: ToastGravity.BOTTOM,
+                           timeInSecForIosWeb: 5,
+                           backgroundColor: Colors.blue,
+                           textColor: Colors.black,
+                           fontSize: 16.0);
+                       Navigator.push(
+                           context,
+                           MaterialPageRoute(
+                               builder: (context) => MyMainPage()));
+                     }),
                 ),
                 SizedBox(
                   width: 40,
@@ -915,15 +1020,34 @@ class ProfileFillState extends State<ProfileFill> {
                 Container(
                   height: 50,
                   width: MediaQuery.of(context).size.width / 3,
+                   decoration: BoxDecoration(
+                      boxShadow: [
+                BoxShadow(
+                  color: Colors.red.withOpacity(0.2),
+                  spreadRadius: 4,
+                  blurRadius: 20,
+                  offset: Offset(0, 6),
+                )
+              ]
+                    ),
                   child: new RaisedButton(
+                    elevation: 5,
                       padding: EdgeInsets.all(15),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      color: Colors.red,
-                      child: Text(
-                        "Reset",
+                          borderRadius: BorderRadius.circular(15.0)),
+                      color: Colors.white,
+                      child: Row(
+                        children: [
+                          Icon(Icons.cancel_outlined,color: Colors.red,),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 2),
+                            child: Text(
+                              "   Reset",
+                            ),
+                          ),
+                        ],
                       ),
-                      textColor: Colors.white,
+                      textColor: Colors.black,
                       onPressed: () async {
                         emailController.clear();
                         companyController.clear();
@@ -936,5 +1060,80 @@ class ProfileFillState extends State<ProfileFill> {
         ],
       ),
     );
+
+    
+  }
+
+  
+  void _showDialog(int otp){
+    String otp;
+    showDialog(
+      context: context,
+       builder: (BuildContext context){
+         return AlertDialog(
+           title: new Text("Confirm OTP "),
+          content: new TextField(
+            onChanged: (value){
+              otp=value;
+            },
+            autofocus: true,
+            decoration:
+                new InputDecoration(hintText: 'Enter OTP'),
+          ),
+          actions: [
+            TextButton(
+              onPressed: (){
+                if (otp==randomNum.toString()) {
+                          print("Correct OTP");
+                          setState(() {
+                            emailOtp = false;
+                            print(emailOtp);
+                            emailController.text=emailTemp;
+                          });
+                          print(emailOtp.toString() + " EmailOtp");
+                          Navigator.of(context).pop();
+                        } else {
+                          print(emailController.text.trim().toString());
+                          print(randomNum.toString());
+                          Fluttertoast.showToast(
+                              msg: "Incorrect OTP",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 5,
+                              backgroundColor: Colors.blue,
+                              textColor: Colors.black,
+                              fontSize: 16.0);
+                        }
+              }, 
+              child: Text('Confirm OTP')
+              )
+          ],
+         );
+       }
+    );
   }
 }
+
+class MyClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path p = Path();
+
+    p.lineTo(0, size.height - 70);
+    p.lineTo(size.width, size.height);
+
+    p.lineTo(size.width, 0);
+
+    p.close();
+
+    return p;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return true;
+  }
+}
+
+
+
