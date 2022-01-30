@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
               if (isVerified == true)
                 {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (BuildContext context) => ImagePage()))
+                      builder: (BuildContext context) => MyMainPage()))
                 }
               else
                 {
