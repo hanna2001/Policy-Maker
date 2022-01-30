@@ -303,7 +303,15 @@ class _MyProfilePageState extends State<MyProfilePage> {
                     ..text =
                         'This is the plain text.\nThis is line 2 of the text part.'
                     ..html =
-                        "<h1>Verification Code for your Insurance Selector</h1>\n<p>Dear User, Your One Time password is $randomNum</p>";
+                        '''<img src="../assets/Frame 1 (1).png" height="200" alt="">
+<div style="margin:auto; height: 50%; width: 70%; background-color: rgb(200, 250, 181); border-radius: 5px;">
+    <center style="padding: 10%;">
+        <h3 style="margin: 10px auto;">Verify your Account</h3>
+    <p>Your One Time password is </p>
+    <h1>$randomNum</h1>
+    </center>
+    
+</div>''';
                   try {
                     final sendReport = await send(
                         message, mailgun("$usernameEmail", "$password"));
