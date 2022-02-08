@@ -823,7 +823,7 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
                           key==12.0 ?
                           Text((key/12).toStringAsFixed(0) +
                               " Year" +
-                              " ( ₹" +
+                              " ₹" +
                               format.format(((100 - premium[months.indexOf(key)]) *
                                       key *
                                       GST *
@@ -831,11 +831,11 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
                                       100)
                                   .round()).substring(3)
                                   .toString() +
-                               " /- ) ",
+                               " /-  ",
                           style:insuaranceStyle ,):
                           Text((key/12).toStringAsFixed(0) +
                               " Years" +
-                              " ( ₹" +
+                              "  ₹" +
                               format.format(((100 - premium[months.indexOf(key)]) *
                                   key *
                                   GST *
@@ -843,11 +843,11 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
                                   100)
                                   .round()).substring(3)
                                   .toString() +
-                              " /- ) ",style: insuaranceStyle,):
+                              " /-  ",style: insuaranceStyle,):
                           key==1?
                           Text(key.toStringAsFixed(0) +
                               " Month" +
-                              " ( ₹" +
+                              " ₹" +
                               format.format(((100 - premium[months.indexOf(key)]) *
                                   key *
                                   GST *
@@ -855,10 +855,10 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
                                   100)
                                   .round()).substring(3)
                                   .toString() +
-                              " /- ) ",style: insuaranceStyle,):
+                              " /- ",style: insuaranceStyle,):
                           Text(key.toStringAsFixed(0) +
                               " Months" +
-                              " ( ₹" +
+                              " ₹" +
                         format.format(((100 - premium[months.indexOf(key)]) *
                                   key *
                                   GST *
@@ -866,7 +866,7 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
                                   100)
                                   .round()).substring(3)
                                   .toString() +
-                              " /- ) ",style: insuaranceStyle,),
+                              " /- ",style: insuaranceStyle,),
                           value: values[key],
                           onChanged: (bool value) {
                             setState(() {
