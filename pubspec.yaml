@@ -26,7 +26,7 @@ dependencies:
   shared_preferences: ^2.0.12
   otp_text_field: ^1.1.1
   simple_animations: ^2.2.1
-
+  card_swiper: ^2.0.1
   flat_icons_flutter: ^1.0.2
   http: ^0.13.4
   mailer: ^5.0.2

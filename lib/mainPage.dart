@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flat_icons_flutter/flat_icons_flutter.dart';
 import 'package:policy_maker/aboutUs.dart';
 import 'package:policy_maker/insuranceSelector.dart';
+import 'package:policy_maker/plan.dart';
 import 'package:policy_maker/profile.dart';
 import 'package:policy_maker/services.dart';
+import 'package:policy_maker/subscribtion.dart';
 import 'package:policy_maker/userServices.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -262,6 +264,52 @@ class _MyMainPageState extends State<MyMainPage> {
                                 setState(() {
                                   mainWidget = MyInsuranceSelector();
                                   title = "Home";
+                                });
+                                Navigator.pop(context);
+                              },
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            ListTile(
+                              leading: Icon(
+                                Icons.ice_skating ,
+                                color: Colors.black,
+                              ),
+                              title: Text(
+                                "Plans",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              onTap: () {
+                                setState(() {
+                                  mainWidget = Plan();
+                                  title = "";
+                                });
+                                Navigator.pop(context);
+                              },
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            ListTile(
+                              leading: Icon(
+                                Icons.ice_skating ,
+                                color: Colors.black,
+                              ),
+                              title: Text(
+                                "Subscribe",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              onTap: () {
+                                setState(() {
+                                  mainWidget = Subscribe();
+                                  title = "";
                                 });
                                 Navigator.pop(context);
                               },

@@ -50,6 +50,7 @@ class MyInsuranceSelectorState extends State<MyInsuranceSelector> {
       setState(() {
         _insurance = insurance;
       });
+      print("---"+_insurance.toString());
       print("Length ${_insurance.length}");
     });
   }
