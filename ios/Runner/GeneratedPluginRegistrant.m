@@ -12,6 +12,12 @@
 @import android_multiple_identifier;
 #endif
 
+#if __has_include(<cashfree_pg/CashfreePgPlugin.h>)
+#import <cashfree_pg/CashfreePgPlugin.h>
+#else
+@import cashfree_pg;
+#endif
+
 #if __has_include(<device_information/DeviceInformationPlugin.h>)
 #import <device_information/DeviceInformationPlugin.h>
 #else
@@ -106,6 +112,7 @@
 
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
   [AndroidMultipleIdentifierPlugin registerWithRegistrar:[registry registrarForPlugin:@"AndroidMultipleIdentifierPlugin"]];
+  [CashfreePgPlugin registerWithRegistrar:[registry registrarForPlugin:@"CashfreePgPlugin"]];
   [DeviceInformationPlugin registerWithRegistrar:[registry registrarForPlugin:@"DeviceInformationPlugin"]];
   [FLTFirebaseAuthPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseAuthPlugin"]];
   [FLTFirebaseCorePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseCorePlugin"]];

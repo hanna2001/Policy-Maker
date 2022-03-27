@@ -23,6 +23,11 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin android_multiple_identifier, flutter.io.androidmultipleidentifier.AndroidMultipleIdentifierPlugin", e);
     }
     try {
+      flutterEngine.getPlugins().add(new com.cashfree.cashfree_pg.CashfreePgPlugin());
+    } catch(Exception e) {
+      Log.e(TAG, "Error registering plugin cashfree_pg, com.cashfree.cashfree_pg.CashfreePgPlugin", e);
+    }
+    try {
       flutterEngine.getPlugins().add(new co.creativemind.device_information.DeviceInformationPlugin());
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin device_information, co.creativemind.device_information.DeviceInformationPlugin", e);

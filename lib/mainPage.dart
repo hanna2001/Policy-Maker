@@ -291,29 +291,7 @@ class _MyMainPageState extends State<MyMainPage> {
                                 Navigator.pop(context);
                               },
                             ),
-                            SizedBox(
-                              height: 2,
-                            ),
-                            ListTile(
-                              leading: Icon(
-                                Icons.ice_skating ,
-                                color: Colors.black,
-                              ),
-                              title: Text(
-                                "Subscribe",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              onTap: () {
-                                setState(() {
-                                  mainWidget = Subscribe();
-                                  title = "";
-                                });
-                                Navigator.pop(context);
-                              },
-                            ),
+                            
                             SizedBox(
                               height: 2,
                             ),
@@ -339,18 +317,23 @@ class _MyMainPageState extends State<MyMainPage> {
                             SizedBox(
                               height: 2,
                             ),
-
-                            // ListTile(
-                            //   leading: Icon(Icons.help,color:Colors.white),
-                            //   title: Text("Insurance Selector"),
-                            //   onTap: () {
-                            //     // setState(() {
-                            //     //   mainWidget = MyInsurancePage();
-                            //     //   title = "Insurance Page";
-                            //     // });
-                            //     Navigator.pop(context);
-                            //   },
-                            // ),
+                            ListTile(
+                              leading:Image.asset('assets/crown.png',height: 30,),
+                              title: Text(
+                                "Subscribe",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              onTap: () {
+                                setState(() {
+                                  mainWidget = Subscribe();
+                                  title = "";
+                                });
+                                Navigator.pop(context);
+                              },
+                            ),
 
                             ListTile(
                               leading: Icon(
@@ -387,26 +370,7 @@ class _MyMainPageState extends State<MyMainPage> {
                           padding: const EdgeInsets.only(left: 30.0),
                           child: Column(
                             children: <Widget>[
-                              ListTile(
-                                leading: Image.asset('assets/crown.png',),
-                                title: Text(
-                                  "Subscribe",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                                onTap: () {
-                                  // Share.share(
-                                  //     '$link Your beloved one uses our app! Why dont you?');
-                                  _launchURL1();
-                                  Navigator.pop(context);
-                                  // Navigator.push(
-                                  //   context,
-                                  //     MaterialPageRoute(
-                                  //       builder: (context) => MyApp()));
-                                },
-                              ),
+                              
                               ListTile(
                                 leading: Icon(
                                   Icons.share,

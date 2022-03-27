@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart'
     as http; // add the http plugin in pubspec.yaml file.
 import 'package:policy_maker/companyPlans.dart';
+import 'package:policy_maker/subsciptonPlans.dart';
 
 import 'Responses.dart';
 
@@ -20,6 +21,39 @@ class Services {
   static const GET11 = 'table11';
   static const GET12 = 'table12';
   // Method to create the table Responsess.
+  static Future<List> getSubPlans() async{
+      try {
+        var map = Map<String, dynamic>();
+        map['action'] = 'subscription';
+        var url=Uri.parse(ROOT);
+        final response = await http.post(url, body: map);
+        print('Plan Names response: ${response.body}');
+        print(response.statusCode);
+        if (200 == response.statusCode) {
+          
+          List body=jsonDecode(response.body);
+          print(body.length);
+          List op=[];
+          for(int i=0;i<body.length;i++)
+            {
+              print(body[i]["splan_name"]);
+              SubPlans s=SubPlans(name: body[i]["splan_name"],duration: body[i]["splan_duration"],features: body[i]["splan_feature"].split(","),amount: body[i]["splan_cost"]);
+              s.setYear();
+              s.setMonth();
+              op.add(s);
+              print(s.months);
+            }
+          print('----');
+          print(op);
+          return op;
+        } else {
+          return List<Responses>();
+        }
+      } catch (e) {
+        return List<Responses>(); // return an empty list on exception/error
+      }
+    }
+
   static Future<List> _getCompanyNames() async{
     try {
       var map = Map<String, dynamic>();
@@ -134,7 +168,7 @@ class Services {
           List op=[];
           print(body);
           for(int i=0;i<body.length;i++){
-            CompanyPlans plan=CompanyPlans(planName: body[i]["plan_name"],planFeature: body[i]["plan_feature"],year: body[i]["installments_plan"],companyName: body[i]['company_name'],insTyp: body[i]['insurance_type']);
+            CompanyPlans plan=CompanyPlans(planName: body[i]["plan_name"],planFeature: body[i]["plan_feature"].split(","),year: body[i]["installments_plan"],companyName: body[i]['company_name'],insTyp: body[i]['insurance_type']);
             op.add(plan);
         }
           return op;

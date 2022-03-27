@@ -38,6 +38,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "cashfree_pg",
+      "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/cashfree_pg-1.2.5+22",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "characters",
       "rootUri": "file:///C:/flutter/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0",
       "packageUri": "lib/",
@@ -608,7 +614,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2022-02-13T08:48:11.848372Z",
+  "generated": "2022-03-17T18:41:04.845960Z",
   "generator": "pub",
   "generatorVersion": "2.15.1"
 }

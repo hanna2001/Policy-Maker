@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kohli.studio.policy_maker">
+    package="com.kohli.studio.policy_maker"
+    xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -17,7 +18,8 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="InsureBuddy"
-        android:icon="@mipmap/app_icon">
+        android:icon="@mipmap/app_icon"
+        tools:node="merge">>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

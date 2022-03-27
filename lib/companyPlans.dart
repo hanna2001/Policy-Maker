@@ -1,7 +1,7 @@
 class CompanyPlans{
   List member;
   String planName;
-  String planFeature;
+  List planFeature;
   String year;
   String insTyp;
   String companyName;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:policy_maker/companyPlans.dart';
 import 'package:policy_maker/services.dart';
 import 'package:policy_maker/Responses.dart';
@@ -49,6 +50,7 @@ class _PlanState extends State<Plan> {
       setState(() {
         iType=value;
         loading=false;
+        insTypShow=true;
       });
     });
   }
@@ -59,6 +61,7 @@ class _PlanState extends State<Plan> {
       setState(() {
         companyNames=value;
         loading=false;
+        companyShow=true;
       });
     });
     
@@ -169,128 +172,152 @@ class _PlanState extends State<Plan> {
               Align(alignment: Alignment.topLeft, child: Image(image: AssetImage('assets/logo_blue.png'))),
               
               Padding(
-                padding: const EdgeInsets.only(top:20,left: 30),
+                padding: const EdgeInsets.only(top:20,left: 10,right: 10),
                 child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Align(alignment: Alignment.topLeft, child: Text('Select Insurance Name:')),
-                      SizedBox(width: 20,),
-                      DropdownButton<dynamic>(
-                      value: selectedInN,
-                      underline: Container(
-                        height: 2,
-                      ),
-                      onChanged: (dynamic newValue) {
-                        setState(() {
-                          // dropdownValue = newValue!;
-                          selectedInN=newValue.toString();
-                          if(selectedInN!=null)
-                          {
-                            
-                            selectedInT=null;
-                            selectedCompany=null;
-                            selectedMem=null;
-                
-                            // cardShow=false;
-                            // planNames=[];
-                            status=1;
-                            loading=true;
-                            getInsuranceType();
-                            
-                            insTypShow=true;
-                          }
-                        });
-                      },
-                      items: iName
-                          .map<DropdownMenuItem<String>>((dynamic value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 5),
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      //borderRadius: BorderRadius.all(Radius.circular(15)),
+                      border: Border.all()
                     ),
-                    ],
-                  ),
-                  Opacity(
-                    opacity: insTypShow?1:0,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Align(alignment: Alignment.topLeft, child: Text('Select Type:')),
+                        Align(alignment: Alignment.topLeft, child: Text('Select Insurance Name:')),
                         SizedBox(width: 20,),
                         DropdownButton<dynamic>(
-                        value: selectedInT,
+                        value: selectedInN,
                         underline: Container(
                           height: 2,
                         ),
                         onChanged: (dynamic newValue) {
                           setState(() {
                             // dropdownValue = newValue!;
-                            selectedInT=newValue.toString();
-                            if(selectedInT!=null)
+                            selectedInN=newValue.toString();
+                            if(selectedInN!=null)
                             {
-                              // cardShow=false;
+                              
+                              selectedInT=null;
                               selectedCompany=null;
                               selectedMem=null;
                 
+                              // cardShow=false;
                               // planNames=[];
-                              status=2;
+                              status=1;
                               loading=true;
-                              getCompanyNamesNT();
-                              companyShow=true;
+                              getInsuranceType();
+                              
+                              
                             }
                           });
                         },
-                        items: iType
+                        items: iName
                             .map<DropdownMenuItem<String>>((dynamic value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
                           );
                         }).toList(),
-                                          ),
+                      ),
                       ],
+                    ),
+                  ),
+                  Opacity(
+                    opacity: insTypShow?1:0,
+                    child: Container(
+                      margin: EdgeInsets.symmetric(vertical: 5),
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      border: Border.all()
+                    ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Align(alignment: Alignment.topLeft, child: Text('Select Type:')),
+                          SizedBox(width: 20,),
+                          DropdownButton<dynamic>(
+                          value: selectedInT,
+                          underline: Container(
+                            height: 2,
+                          ),
+                          onChanged: (dynamic newValue) {
+                            setState(() {
+                              // dropdownValue = newValue!;
+                              selectedInT=newValue.toString();
+                              if(selectedInT!=null)
+                              {
+                                // cardShow=false;
+                                selectedCompany=null;
+                                selectedMem=null;
+                
+                                // planNames=[];
+                                status=2;
+                                loading=true;
+                                getCompanyNamesNT();
+                                 
+                              }
+                            });
+                          },
+                          items: iType
+                              .map<DropdownMenuItem<String>>((dynamic value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                                            ),
+                        ],
+                      ),
                     ),
                   ),
                   Opacity(
                     opacity: companyShow?1:0,
-                    child: Row(
-                      children: [
-                        Align(alignment: Alignment.topLeft, child: Text('Select Company Name:')),
-                        SizedBox(width: 20,),
-                        DropdownButton<dynamic>(
-                        value: selectedCompany,
-                        underline: Container(
-                          height: 2,
-                        ),
-                        onChanged: (dynamic newValue) {
-                          setState(() {
-                            // dropdownValue = newValue!;
-                            selectedCompany=newValue.toString();
-                            cardShow=false;
-                            if(selectedCompany!=null){
-                
-                              // cardShow=false;
-                
-                              // planNames=[];
-                
-                              //get plan names
-                              status=3;
-                              loading=true;
-                              getPlanNames();
-                            }
-                            
-                          });
-                        },
-                        items: companyNames
-                            .map<DropdownMenuItem<String>>((dynamic value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
+                    child: Container(
+                      margin: EdgeInsets.symmetric(vertical: 5),
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                      border: Border.all()
                       ),
-                      ],
+                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Align(alignment: Alignment.topLeft, child: Text('Select Company Name:')),
+                          SizedBox(width: 20,),
+                          DropdownButton<dynamic>(
+                          value: selectedCompany,
+                          underline: Container(
+                            height: 2,
+                          ),
+                          onChanged: (dynamic newValue) {
+                            setState(() {
+                              // dropdownValue = newValue!;
+                              selectedCompany=newValue.toString();
+                              cardShow=false;
+                              if(selectedCompany!=null){
+                
+                                // cardShow=false;
+                
+                                // planNames=[];
+                
+                                //get plan names
+                                status=3;
+                                loading=true;
+                                getPlanNames();
+                              }
+                              
+                            });
+                          },
+                          items: companyNames
+                              .map<DropdownMenuItem<String>>((dynamic value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                        ),
+                        ],
+                      ),
                     ),
                   ),
                   TextButton(
@@ -306,11 +333,137 @@ class _PlanState extends State<Plan> {
                       }
                       if (planNames.length==0){
                         setState(() {
-                          
+                         
                         status=4;
                         });
                       }
                       print(status);
+                      showDialog(
+                           context: context, 
+                           builder: (context){
+                             return Container(
+                               padding: EdgeInsets.symmetric(vertical: 30),
+                               child: Flexible(
+                                  child: cardShow?Swiper(
+                                    loop: false,
+                                      itemBuilder: (context, index) {
+                                        return Container(
+                                    
+                                          margin: EdgeInsets.all(30),
+                                          
+                                          child: Card(
+                                            elevation: 10,
+                                            shadowColor: Colors.black,
+                                            color: Colors.white,
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: Column(
+                                                
+                                                children: [
+                                                  Image(
+                                                    image: AssetImage('assets/card${index%5}.png'),
+                                                    height: 70,
+                                                  ),
+                                                  Text(
+                                                    // plans[index].planName,
+                                                    planNames[index].planName,
+                                                    style: TextStyle(
+                                                      fontSize: 25
+                                                    ),  
+                                                  ),
+                                                  Text(
+                                                    planNames[index].companyName,
+                                                    style: TextStyle(
+                                                      color: Colors.blue,
+                                                      fontSize: 15
+                                                    ),  
+                                                  ),
+                                                  Spacer(),
+                                                  // TextButton(onPressed: (){
+                                                    
+                                                  //   showDialog(
+                                                  //     context: context,
+                                                      
+                                                  //     builder: (_)=> AlertDialog(
+                                                  //       actions: [TextButton(onPressed: (){Navigator.pop(context);}, child: Text('Close'))],
+                                                  //     title:  Text('Member Types'),
+                                                  //     content:Container(
+                                                  //       // height: 100,
+                                                  //       width: 100,
+                                                  //       child: planNames[index].member.length>0?ListView.builder(
+                                                  //         shrinkWrap: true,
+                                                  //         itemCount:planNames[index].member.length,
+                                                  //         itemBuilder: (context,ind){
+                                                  //         return ListTile(
+                                                  //           title: Text(planNames[index].member[ind]),
+                                                  //         );
+                                                  //       }):Text('No member type to show'),
+                                                  //     )
+                                                  // ));
+                                                  // }, 
+                                                  // child: Text('View member types')),
+                                                  TextButton(onPressed: (){}, child: Text('Member Types Available',style: TextStyle(color: Colors.blue),)),
+                                                  Container(
+                                                    padding: EdgeInsets.symmetric(horizontal: 5),
+                                                    height: 70,
+                                                    child: SingleChildScrollView(
+                                                      child: Text(
+                                                        planNames[index].member.toString().substring(1,planNames[index].member.toString().length-1),
+                                                        //dummyList.toString(),
+                                                      textAlign: TextAlign.center,
+                                                        style: TextStyle(
+                                                        color: Colors.grey
+                                                        ), 
+                                                        
+                                                        ),
+                                                    ),
+                                                  ),
+                                                  Spacer(),
+                                                 
+                                                  Flexible(
+                                                    child: ListView.builder(itemBuilder: (context,ind){
+                                                      return Column(
+                                                        children: [
+                                                          Padding(
+                                                            padding: const EdgeInsets.all(2.0),
+                                                            child: 
+                                                              
+                                                                Text(planNames[index].planFeature[ind]),
+                                                             
+                                                          ),
+                                                        ],
+                                                      );
+                                                      
+                                                    },
+                                                    itemCount: planNames[index].planFeature.length,),
+                                                  ),
+                                                  Spacer(),
+                                                  FlatButton(onPressed: (){}, child: Text('Download Brochore',style: TextStyle(color: Colors.white),),color: Colors.blue,)
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      // autoplay: true,
+                                      itemCount: planNames.length,
+                                      pagination:  SwiperPagination(
+                                        margin: EdgeInsets.all(5),
+                                        builder: DotSwiperPaginationBuilder(size: 7,activeSize: 7,
+                                        color: Colors.grey, activeColor:Colors.blue)
+                                      ),
+                                      control:  SwiperControl(
+                                      ),
+                                    ):Container(
+                                      color: Colors.white,
+                                      child: Opacity(opacity: 0.1, child: Image(image: AssetImage('assets/app_icon.png'))),
+                                    )
+                                          ),
+                               margin: EdgeInsets.symmetric(horizontal: 20,vertical: 70),
+                               color: Colors.transparent,
+                             );
+                           }
+                          );
                         
                     },
                      child: Row(
@@ -326,112 +479,9 @@ class _PlanState extends State<Plan> {
               ),
               
               Flexible(
-                child: cardShow?Swiper(
-                  loop: false,
-                    itemBuilder: (context, index) {
-                      return Container(
-                   
-                        margin: EdgeInsets.all(30),
-                        
-                        child: Card(
-                          elevation: 10,
-                          shadowColor: Colors.black,
-                          color: Colors.white,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              
-                              children: [
-                                Image(
-                                  image: AssetImage('assets/card${index%5}.png'),
-                                  height: 70,
-                                ),
-                                Text(
-                                  // plans[index].planName,
-                                  planNames[index].planName,
-                                  style: TextStyle(
-                                    fontSize: 25
-                                  ),  
-                                ),
-                                Text(
-                                  planNames[index].companyName,
-                                  style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 15
-                                  ),  
-                                ),
-                                Spacer(),
-                                // TextButton(onPressed: (){
-                                  
-                                //   showDialog(
-                                //     context: context,
-                                     
-                                //     builder: (_)=> AlertDialog(
-                                //       actions: [TextButton(onPressed: (){Navigator.pop(context);}, child: Text('Close'))],
-                                //     title:  Text('Member Types'),
-                                //     content:Container(
-                                //       // height: 100,
-                                //       width: 100,
-                                //       child: planNames[index].member.length>0?ListView.builder(
-                                //         shrinkWrap: true,
-                                //         itemCount:planNames[index].member.length,
-                                //         itemBuilder: (context,ind){
-                                //         return ListTile(
-                                //           title: Text(planNames[index].member[ind]),
-                                //         );
-                                //       }):Text('No member type to show'),
-                                //     )
-                                // ));
-                                // }, 
-                                // child: Text('View member types')),
-                                Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 5),
-                                  height: 70,
-                                  child: SingleChildScrollView(
-                                    child: Text(
-                                      planNames[index].member.toString().substring(1,planNames[index].member.toString().length-1),
-                                      //dummyList.toString(),
-                                     textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                       color: Colors.grey
-                                      ), 
-                                      
-                                      ),
-                                  ),
-                                ),
-                                Spacer(),
-                                Text(
-                                  planNames[index].planFeature,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 15
-                                  ),  
-                                ),
-                                Spacer(),
-                                FlatButton(onPressed: (){}, child: Text('Download Brochore',style: TextStyle(color: Colors.white),),color: Colors.blue,)
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                    // autoplay: true,
-                    itemCount: planNames.length,
-                    pagination:  SwiperPagination(
-                      margin: EdgeInsets.all(5),
-                      builder: DotSwiperPaginationBuilder(size: 7,activeSize: 7,
-                      color: Colors.grey, activeColor:Colors.blue)
-                    ),
-                    control:  SwiperControl(
-                    ),
-                  ):Container(
+                child: Container(
                     color: Colors.white,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(getText()),
-                      ],
-                    ),
+                    child: Opacity(opacity: 0.1, child: Image(image: AssetImage('assets/app_icon.png'))),
                   )
                          ),
               
@@ -448,7 +498,7 @@ class _PlanState extends State<Plan> {
                       child: Container(
                         height: 50,
                         width: 50,
-                        child: Center(child: CircularProgressIndicator())
+                        child: Center(child: SpinKitCircle(color: Colors.blue))
                       ),
                     ),
             ),
